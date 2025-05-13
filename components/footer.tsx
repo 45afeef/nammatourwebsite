@@ -6,8 +6,8 @@ export default function Footer() {
         < footer className="bg-gray-900 text-white py-16" >
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div>
-                        <Image src="/logo-white.png" alt="NammaTour Logo" width={150} height={50} />
+                    <div className="flex flex-col items-center">
+                        <Image src="/logo-white.png" alt="NammaTour Logo" width={200} height={50} />
                         <p className="mt-4 text-gray-400">
                             Your trusted partner for memorable Wayanad experiences
                         </p>
