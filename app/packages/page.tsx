@@ -1,7 +1,7 @@
 import PackageList from "@/components/packages";
 import Image from "next/image";
 
-export default function Packages() {
+export default function PackagesPage() {
     return (
         <>
             <div
