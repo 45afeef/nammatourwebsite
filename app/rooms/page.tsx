@@ -163,7 +163,7 @@ export default function RoomsPage() {
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center">
                         Handpicked Curated List of Best Vibey Stay
                     </h1>
-                    <p className="mt-2 text-sm sm:text-base">
+                    <p className="mt-2 text-sm sm:text-base text-center">
                         Ever updating, simple and minimal stays that match your vibe
                     </p>
                 </div>
@@ -175,7 +175,7 @@ export default function RoomsPage() {
             <div className="px-4 py-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     {rooms.map((item, index) => (
-                        <div key={index} className="bg-white shadow-lg rounded-xl overflow-hidden border-2 border-gray-200 hover:shadow-xl transition-shadow duration-300 group">
+                        <div key={index} className=" shadow-lg rounded-xl overflow-hidden border-0 hover:shadow-xl transition-shadow duration-300 group shadow-foreground/30 ">
                             <img
                                 src={`/images/rooms/room-${index + 1}.webp`}
                                 alt={item.alt || item.name}

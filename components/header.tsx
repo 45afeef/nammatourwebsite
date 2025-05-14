@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Header() {
@@ -23,14 +24,14 @@ export default function Header() {
                 <nav className="w-full  px-4 py-6">
                     <div className="container mx-auto flex justify-between items-center">
                         <div className="logo ml-10">
-                            <>
+                            <Link href="/">
                                 <div className="md:hidden">
                                     <Image src="/logo-white.png" alt="NammaTour Logo" width={75} height={75} />
                                 </div>
                                 <div className="hidden md:block">
                                     <Image src="/logo-white.png" alt="NammaTour Logo" width={100} height={100} />
                                 </div>
-                            </>
+                            </Link>
                         </div>
 
                         {/* Desktop Navigation */}
@@ -39,7 +40,7 @@ export default function Header() {
                         </div>
 
 
-                        <button className="md:hidden text-black" onClick={openMobileMenu}>
+                        <button className="md:hidden" onClick={openMobileMenu}>
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
@@ -51,21 +52,25 @@ export default function Header() {
             {/* Mobile Navigation */}
 
 
-            <div className={`fixed inset-0 z-50 flex transform transition-transform duration-300 ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
-                {/* Black Overlay */}
-                <div
-                    className="fixed inset-0 bg-black"
-                    onClick={closeMobileMenu}
-                ></div>
-                <div className="relative ml-auto w-64 h-full bg-white shadow-lg">
+            {/* Black Overlay */}
+            {mobileMenuOpen &&
+                <div className="fixed inset-0 z-50 bg-foreground/50 duration-700 opacity-50" />
+            }
+            <div
+                className={`fixed inset-0 z-50 flex transition duration-700 ease-in-out ${mobileMenuOpen ? "translate-x-0" :
+                    "translate-x-full"}`}
+                onClick={closeMobileMenu}
+
+            >
+                <div className="relative ml-auto w-64 h-full bg-background text-foreground hover:text-gray-200 shadow-lg">
                     <button
                         onClick={closeMobileMenu}
-                        className="absolute top-4 right-4 text-2xl text-black"
+                        className="absolute top-4 right-4 text-2xl"
                     >
                         &times;
                     </button>
-                    <nav className="mt-16 flex flex-col space-y-4 pl-4">
-                        <NavigationLinks />
+                    <nav className="mt-16 flex flex-col space-y-4 pl-4 ">
+                        <NavigationLinks onclick={closeMobileMenu} />
                     </nav>
                 </div>
             </div>
@@ -75,17 +80,19 @@ export default function Header() {
     );
 
 }
+interface NavigationLinksProps {
+    onclick?: () => void;
+}
 
-function NavigationLinks() {
+function NavigationLinks({ onclick }: NavigationLinksProps) {
     return (
         <>
-            <a href="/" className="text-black hover:text-gray-200">Home</a>
-            <a href="/packages" className="text-black hover:text-gray-200">Packages</a>
-            <a href="/rooms" className="text-black hover:text-gray-200">Rooms</a>
-            <a href="/cabs" className="text-black hover:text-gray-200">Cabs</a>
-            <a href="/blog" className="text-black hover:text-gray-200">Blog</a>
-            <a href="/contact" className="text-black hover:text-gray-200">Contact</a>
+            <Link href="/" onClick={onclick} >Home</Link>
+            <Link href="/packages" onClick={onclick} >Packages</Link>
+            <Link href="/rooms" onClick={onclick} >Rooms</Link>
+            <Link href="/cabs" onClick={onclick} >Cabs</Link>
+            <Link href="/blog" onClick={onclick} >Blog</Link>
+            <Link href="/contact" onClick={onclick} >Contact</Link>
         </>
     );
-
 }

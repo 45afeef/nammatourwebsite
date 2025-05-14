@@ -10,7 +10,7 @@ export default function PackagesPage() {
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                 }}
-                className="relative flex flex-col mt-52 w-4/5 mx-auto p-8 rounded-lg shadow-lg h-72 text-center justify-center items-center overflow-clip"
+                className="relative flex flex-col md:mt-24 mt-12 w-4/5 mx-auto p-8 rounded-lg shadow-lg h-72 text-center justify-center items-center overflow-clip"
             >
                 <div className="absolute inset-0 w-full h-full bg-black opacity-30" />
 

@@ -9,7 +9,7 @@ export default function Home() {
 
 
       {/* Hero Content */}
-      <div className="relative h-screen">
+      <section className="relative h-screen">
         <Image
           src="/hero-image.jpg"
           alt="Wayanad Landscape"
@@ -48,8 +48,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
-
+      </section>
 
       {/* Inclusions Section */}
       <section className="py-20">
