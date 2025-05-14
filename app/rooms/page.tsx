@@ -150,11 +150,11 @@ export default function RoomsPage() {
     ];
 
     return (
-        <div className="flex flex-col">
+        <div className="container mx-auto py-8">
             {/* Banner */}
 
             <div
-                className="relative w-full h-64 sm:h-80 md:h-96 bg-cover bg-center"
+                className="relative w-full h-64 sm:h-80 md:h-96 bg-cover bg-center rounded-lg overflow-hidden"
                 style={{ backgroundImage: "url('images/abstract-bg.jpg')" }}
             >
                 <div className="absolute inset-0 bg-black opacity-50"></div>
@@ -169,10 +169,16 @@ export default function RoomsPage() {
                 </div>
             </div>
 
-            {/* Gallery */}
+            {/* Rooms Gallery */}
             {/* Tailwind CSS handles the hover effect using the group and group-hover classes.
                 Ensure you add the "group" class to your card container as shown below: */}
-            <div className="px-4 py-8">
+            <div className="px-4 md:px-0 py-8">
+                <h2 className="text-4xl font-bold text-center mb-4">Best Rooms in Wayanad</h2>
+                <p className="text-center text-foreground/80
+                   mb-16">
+                    Curated experiences for every type of traveler
+                </p>
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     {rooms.map((item, index) => (
                         <div key={index} className=" shadow-lg rounded-xl overflow-hidden border-0 hover:shadow-xl transition-shadow duration-300 group shadow-foreground/30 ">
