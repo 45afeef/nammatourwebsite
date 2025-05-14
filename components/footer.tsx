@@ -8,7 +8,9 @@ export default function Footer() {
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
                     <div className="flex flex-col items-center">
-                        <Image src="/logo-white.png" alt="NammaTour Logo" width={200} height={50} />
+                        <Link href="/">
+                            <Image src="/logo-white.png" alt="NammaTour Logo" width={200} height={50} />
+                        </Link>
                         <p className="mt-4 text-gray-400 text-center">
                             Your trusted partner for memorable Wayanad experiences
                         </p>

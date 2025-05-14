@@ -2,6 +2,8 @@ import EnquiryForm from "@/components/enquiry-form";
 
 export default function ContactUsPage() {
     return (
-        <EnquiryForm />
+        <div className="md:mt-20">
+            <EnquiryForm />
+        </div>
     );
 }

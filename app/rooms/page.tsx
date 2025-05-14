@@ -150,7 +150,7 @@ export default function RoomsPage() {
     ];
 
     return (
-        <div className="container mx-auto py-8 md:max-w-11/12">
+        <div className="container mt-32 md:mt-40 mx-auto py-8 md:max-w-11/12">
             {/* Banner */}
 
             <div
