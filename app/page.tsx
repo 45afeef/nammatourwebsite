@@ -29,7 +29,7 @@ export default function Home() {
             </button>
 
             {/* Social Proof */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 text-white">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 my-16 text-white">
               <div className="text-center">
                 <div className="text-4xl font-bold">10+</div>
                 <div className="text-sm">Years Experience</div>
@@ -76,7 +76,7 @@ export default function Home() {
 
       {/* Testimonials Section */}
       <section className="py-20">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 md:max-w-11/12">
           <h2 className="text-4xl font-bold text-center mb-16">What Our Travelers Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[1, 2, 3].map((index) => (
@@ -90,7 +90,7 @@ export default function Home() {
                     className="rounded-full"
                   />
                   <div className="ml-4">
-                    <h4 className="font-bold">John Doe</h4>
+                    <h4 className="font-bold text-black">John Doe</h4>
                     <p className="text-sm text-gray-600">Bangalore, India</p>
                   </div>
                 </div>
@@ -112,7 +112,7 @@ export default function Home() {
 
       {/* Why NammaTour Section */}
       <section className="py-20">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 md:max-w-11/12">
           <h2 className="text-4xl font-bold text-center mb-16">Why Choose NammaTour?</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="text-center">

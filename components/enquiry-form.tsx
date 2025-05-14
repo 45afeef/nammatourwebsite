@@ -6,6 +6,43 @@ export default function EnquiryForm() {
         <section className="py-20">
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    {/* Contact Details */}
+                    <div className="max-w-2xl mx-auto shadow-foreground/50 shadow-lg rounded-lg p-8 bg-foreground text-background">
+                        <p className="text-sm mb-4 text-center">Click any icon to</p>
+                        <h2 className="text-4xl font-bold text-center lg:text-left mb-8">Contact Us</h2>
+                        <div className="space-y-6">
+                            <div className="space-y-4">
+                                <a href="tel:+917558009733" className="flex items-center text-lg text-primary hover:underline">
+                                    <FaPhone className="mr-3" size={24} />
+                                    +91 755 800 9733
+                                </a>
+                                <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="flex items-center text-lg text-primary hover:underline">
+                                    <FaWhatsapp className="mr-3" size={24} />
+                                    Chat on WhatsApp
+                                </a>
+                                <a href="mailto:info@namm-tour.com" className="flex items-center text-lg text-primary hover:underline">
+                                    <FaEnvelope className="mr-3" size={24} />
+                                    info@namm-tour.com
+                                </a>
+
+                            </div>
+                            <div className="flex space-x-4">
+                                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                                    <FaFacebook size={24} />
+                                </a>
+                                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                                    <FaXTwitter size={24} />
+                                </a>
+                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                                    <FaInstagram size={24} />
+                                </a>
+                                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                                    <FaLinkedin size={24} />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                     {/* Enquiry Form */}
                     <div className="max-w-2xl mx-auto">
                         <h2 className="text-4xl font-bold text-center lg:text-left mb-8">Plan Your Trip</h2>
@@ -41,41 +78,6 @@ export default function EnquiryForm() {
                         </form>
                     </div>
 
-                    {/* Contact Details */}
-                    <div className="max-w-2xl mx-auto shadow-foreground/50 shadow-lg rounded-lg p-8 bg-yellow-100 dark:bg-green-800">
-                        <h2 className="text-4xl font-bold text-center lg:text-left mb-8">Contact Us</h2>
-                        <div className="space-y-6">
-                            <div className="space-y-4">
-                                <a href="tel:+917558009733" className="flex items-center text-lg text-primary hover:underline">
-                                    <FaPhone className="mr-3" size={24} />
-                                    +91 755 800 9733
-                                </a>
-                                <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="flex items-center text-lg text-primary hover:underline">
-                                    <FaWhatsapp className="mr-3" size={24} />
-                                    Chat on WhatsApp
-                                </a>
-                                <a href="mailto:info@namm-tour.com" className="flex items-center text-lg text-primary hover:underline">
-                                    <FaEnvelope className="mr-3" size={24} />
-                                    info@namm-tour.com
-                                </a>
-
-                            </div>
-                            <div className="flex space-x-4">
-                                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                                    <FaFacebook size={24} />
-                                </a>
-                                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                                    <FaXTwitter size={24} />
-                                </a>
-                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                                    <FaInstagram size={24} />
-                                </a>
-                                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                                    <FaLinkedin size={24} />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>

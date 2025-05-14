@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function PackageList() {
     return (
-        <section className="container mx-auto px-4 py-20">
+        <section className="container mx-auto px-4 py-20 md:max-w-11/12">
             <h2 className="text-4xl font-bold text-center mb-4">Explore Our Packages</h2>
             <p className="text-center text-foreground/80
                    mb-16">
