@@ -1,3 +1,4 @@
+import EnquiryForm from "@/components/enquiry-form";
 import PackageList from "@/components/packages";
 import Image from "next/image";
 
@@ -137,43 +138,7 @@ export default function Home() {
       </section>
 
       {/* Enquiry Form */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-4xl font-bold text-center mb-8">Plan Your Trip</h2>
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  className="w-full px-4 py-3 rounded-lg border"
-                />
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  className="w-full px-4 py-3 rounded-lg border"
-                />
-              </div>
-              <input
-                type="tel"
-                placeholder="Phone Number"
-                className="w-full px-4 py-3 rounded-lg border"
-              />
-              <textarea
-                placeholder="Tell us about your requirements"
-                rows={4}
-                className="w-full px-4 py-3 rounded-lg border"
-              />
-              <button
-                type="submit"
-                className="w-full bg-background text-white py-4 rounded-lg text-xl hover:bg-primary-dark transition"
-              >
-                Send Enquiry
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
+      <EnquiryForm />
 
 
     </main>
