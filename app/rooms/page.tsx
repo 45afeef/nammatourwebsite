@@ -1,3 +1,6 @@
+import BannerCard from "@/components/banner-card";
+import ProductCard from "@/components/product-card";
+
 export default function RoomsPage() {
     const rooms = [
         {
@@ -150,24 +153,13 @@ export default function RoomsPage() {
     ];
 
     return (
-        <div className="container mt-32 md:mt-40 mx-auto py-8 md:max-w-11/12">
+        <div className="container mx-auto py-8 md:max-w-11/12">
             {/* Banner */}
-
-            <div
-                className="relative w-full h-64 sm:h-80 md:h-96 bg-cover bg-center rounded-lg overflow-hidden"
-                style={{ backgroundImage: "url('images/abstract-bg.jpg')" }}
-            >
-                <div className="absolute inset-0 bg-black opacity-50"></div>
-                <div className="relative flex flex-col items-center justify-center h-full text-white px-4">
-                    <p className="text-lg mb-2">rooms/stays</p>
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center">
-                        Handpicked Curated List of Best Vibey Stay
-                    </h1>
-                    <p className="mt-2 text-sm sm:text-base text-center">
-                        Ever updating, simple and minimal stays that match your vibe
-                    </p>
-                </div>
-            </div>
+            <BannerCard
+                imageUrl="/images/abstract-bg.jpg"
+                title="Handpicked Curated List of Best Vibey Stay"
+                subtitle="Ever updating, simple and minimal stays that match your vibe"
+            />
 
             {/* Rooms Gallery */}
             {/* Tailwind CSS handles the hover effect using the group and group-hover classes.
@@ -181,21 +173,11 @@ export default function RoomsPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     {rooms.map((item, index) => (
-                        <div key={index} className=" shadow-lg rounded-xl overflow-hidden border-0 hover:shadow-xl transition-shadow duration-300 group shadow-foreground/30 ">
-                            <img
-                                src={`/images/rooms/room-${index + 1}.webp`}
-                                alt={item.alt || item.name}
-                                className="w-full h-60 object-cover transform transition-transform duration-300 group-hover:scale-105"
-                            />
-                            <div className="p-4 flex flex-col h-44">
-                                <p className="text-sm text-gray-500">{item.category}</p>
-                                <h2 className="text-xl font-bold flex-1">{item.name}</h2>
-                                <div className="flex items-center justify-between">
-                                    <span className="text-sm text-gray-600">Starts With</span>
-                                    <p className="text-lg font-medium">{item.price}</p>
-                                </div>
-                            </div>
-                        </div>
+                        <ProductCard
+                            key={index}
+                            {...item}
+                            imgUrl={`/images/rooms/room-${index + 1}.webp`}
+                        />
                     ))}
 
                 </div>
