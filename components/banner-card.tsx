@@ -1,5 +1,5 @@
 export default function BannerCard(
-    { imageUrl, title, subtitle, }: { imageUrl: string; title: string; subtitle: string; }
+    { imageUrl, title, subtitle, }: { imageUrl: string; title: string; subtitle?: string; }
 ) {
     return (
         <div
@@ -11,7 +11,7 @@ export default function BannerCard(
             className={`
                 relative flex flex-col md:mt-44 
                 mt-32 w-4/5 mx-auto p-8 
-                rounded-lg shadow-lg h-72 
+                rounded-lg shadow-lg min-h-56 
                 text-center justify-center items-center overflow-clip
             `}
         >
@@ -21,9 +21,11 @@ export default function BannerCard(
                 <h1 className="text-3xl font-bold ">
                     {title}
                 </h1>
-                <p className="mt-2">
-                    {subtitle}
-                </p>
+                {subtitle && (
+                    <p className="mt-2 text-sm">
+                        {subtitle}
+                    </p>
+                )}
             </div>
         </div>
     );

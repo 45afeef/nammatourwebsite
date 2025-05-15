@@ -1,4 +1,5 @@
-import Image from "next/image";
+import Link from "next/link";
+import ImageCard from "./image-card";
 
 export default function PackageList() {
     return (
@@ -10,24 +11,19 @@ export default function PackageList() {
             </p>
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
                 {[
-                    'Group Packages',
-                    'Couple Packages',
-                    'Family Packages',
-                    'Bangalore to Wayanad Tour packages',
+                    'Group Tour Packages',
+                    'Couple Tour Packages',
+                    'Family Tour Packages',
+                    'Bangalore to Wayanad Tour Packages',
                     'Rooms',
                     'Deep Jungle Treks'
                 ].map((title) => (
-                    <div key={title} className="relative overflow-hidden rounded-lg group cursor-pointer">
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10" />
-                        <Image
-                            src={`/packages/${title.toLowerCase().replace(/ /g, '-')}.webp`}
-                            alt={title}
-                            width={400}
-                            height={300}
-                            className="w-full h-[300px] object-cover transition ease-in-out group-hover:scale-110"
+                    <Link href={`/packages/${encodeURIComponent(title.toLowerCase().replace(/ /g, '-'))}`} key={title}>
+                        <ImageCard
+                            title={title}
+                            imageUrl={`/packages/${title.toLowerCase().replace(/ /g, '-')}.webp`}
                         />
-                        <h3 className="absolute bottom-6 left-6 text-white text-xl font-bold z-20">{title}</h3>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </section>
