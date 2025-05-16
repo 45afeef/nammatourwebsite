@@ -59,12 +59,19 @@ export default function Home() {
             Leaf through most memorable activities that are awaiting for you in wayanad
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-            {['Resorts', 'Camping', 'Sightseeing', 'Treks & Hikes', 'Cab Services', 'Tickets'].map((item) => (
-              <div key={item} className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4">
-                  {/* SVG icons will go here */}
+            {[
+              { title: 'Resorts', icon: "🏠", },
+              { title: 'Camping', icon: "⛺", },
+              { title: 'Sightseeing', icon: "🚞", },
+              { title: 'Treks & Hikes', icon: "🚠", },
+              { title: 'Cab Services', icon: "🚕", },
+              { title: 'Tickets', icon: "🎟️", },
+            ].map((item) => (
+              <div key={item.title} className="text-center">
+                <div className="w-16 h-16 mx-auto mb-4 text-5xl">
+                  {item.icon}
                 </div>
-                <h3 className="font-medium">{item}</h3>
+                <h3 className="font-medium">{item.title}</h3>
               </div>
             ))}
           </div>
