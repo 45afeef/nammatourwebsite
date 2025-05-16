@@ -11,6 +11,7 @@ export default function Page({ params }: { params: Promise<{ slug: string }> }) 
     endDate: "",
     adults: 2,
     kids: 0,
+    name: "",
   });
   const [submitting, setSubmitting] = useState(false);
 
@@ -79,7 +80,7 @@ export default function Page({ params }: { params: Promise<{ slug: string }> }) 
       return;
     }
     setSubmitting(true);
-    const msg = `Hi, I am interested in the Wayanad package (${form.packageType}). Please check availability for my dates.\nStart: ${form.startDate}\nEnd: ${form.endDate}\nAdults: ${form.adults}\nKids (Below 9): ${form.kids}`;
+    const msg = `Hi, I am interested in the Wayanad package (${form.packageType}). Please check availability for my dates.\nStart: ${form.startDate}\nEnd: ${form.endDate}\nAdults: ${form.adults}\nKids (Below 9): ${form.kids}\nName: ${form.name}\nPage: ${typeof window !== 'undefined' ? window.location.href : ''}`;
     const url = `https://wa.me/918891998005?text=${encodeURIComponent(msg)}`;
     window.open(url, '_blank');
     setSubmitting(false);
@@ -190,6 +191,10 @@ export default function Page({ params }: { params: Promise<{ slug: string }> }) 
             <div className="text-2xl font-bold text-green-700 dark:text-green-400 mb-2">₹2,500 <span className="text-base text-gray-400 dark:text-gray-500 line-through ml-2">₹3,500</span></div>
             <form className="bg-gray-50 dark:bg-gray-800 p-4 rounded shadow flex flex-col gap-4 max-w-md" onSubmit={handleSubmit}>
               <div>
+                <label className="block font-semibold mb-1">Your Name</label>
+                <input name="name" type="text" value={form.name || ''} onChange={handleChange} required className="w-full border rounded p-2 dark:bg-gray-900 dark:text-gray-100 dark:border-gray-700" placeholder="Booking Person Name" />
+              </div>
+              <div>
                 <label className="block font-semibold mb-1">Package Type</label>
                 <select name="packageType" value={form.packageType} onChange={handleChange} className="w-full border rounded p-2 dark:bg-gray-900 dark:text-gray-100 dark:border-gray-700">
                   <option>Budget</option>
@@ -232,6 +237,10 @@ export default function Page({ params }: { params: Promise<{ slug: string }> }) 
                 {submitting ? "Processing..." : "Check Availability & Book on WhatsApp"}
               </button>
             </form>
+            <div className="mt-2 text-xs text-gray-500 dark:text-gray-400 break-all">
+              <span>Package Page: </span>
+              <span>{typeof window !== 'undefined' ? window.location.href : ''}</span>
+            </div>
           </div>
           {/* Overview, Inclusions, Exclusions, Itinerary (Tab Content) */}
           <div className="flex-1 space-y-6">

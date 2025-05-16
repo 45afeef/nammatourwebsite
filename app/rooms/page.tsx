@@ -1,5 +1,6 @@
 import BannerCard from "@/components/banner-card";
 import ProductCard from "@/components/product-card";
+import Link from "next/link";
 
 export default function RoomsPage() {
     const rooms = [
@@ -173,11 +174,13 @@ export default function RoomsPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     {rooms.map((item, index) => (
-                        <ProductCard
-                            key={index}
-                            {...item}
-                            imgUrl={`/images/rooms/room-${index + 1}.webp`}
-                        />
+                        <Link href={`/rooms/${item.name.replace(/\s+/g, '-').toLowerCase()}`} key={index}>
+                            <ProductCard
+                                key={index}
+                                {...item}
+                                imgUrl={`/images/rooms/room-${index + 1}.webp`}
+                            />
+                        </Link>
                     ))}
 
                 </div>
