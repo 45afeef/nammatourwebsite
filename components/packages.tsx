@@ -15,8 +15,9 @@ export default function PackageList() {
                     'Couple Tour Packages',
                     'Family Tour Packages',
                     'Bangalore to Wayanad Tour Packages',
+                    'Chennai to Wayanad Tour Packages',
+                    // 'Deep Jungle Treks'
                     'Rooms',
-                    'Deep Jungle Treks'
                 ].map((title) => (
                     <Link href={`/packages/${encodeURIComponent(title.toLowerCase().replace(/ /g, '-'))}`} key={title}>
                         <ImageCard
