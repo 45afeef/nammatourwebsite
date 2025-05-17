@@ -4,9 +4,9 @@
 
 <svg xmlns="http://www.w3.org/2000/svg"
      width="3.33333in" height="3.33333in"
-     viewBox="0 0 1000 1000">
+     viewBox="0 0 1000 1000" fill="currentColor">
   <path id="Selection"
-        fill="none" stroke="black" stroke-width="1"
+        stroke-width="10"
         d="M 16.76,447.34
            C 16.76,447.34 17.52,438.85 17.52,438.85
              17.52,438.85 18.94,423.59 18.94,423.59

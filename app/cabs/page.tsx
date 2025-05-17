@@ -79,8 +79,21 @@ export default function CabsPage() {
                             className={`group flex flex-col items-center border-2 rounded-xl p-3 w-32 transition-all duration-200 focus:outline-none ${cab.value === option.value ? 'border-green-500 bg-green-50 dark:bg-green-900' : 'border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800'}`}
                             onClick={() => handleCabChange(option)}
                         >
-                            <div className="w-16 h-16 mb-2 relative">
-                                <Image src={option.img} alt={option.label} fill className="object-contain" />
+                            <div className="w-16 h-16 mb-2 relative flex items-center justify-center text-black dark:text-white">
+                                {/* NOTE: For SVG color adaptation, ensure your SVGs use fill="currentColor" in the <svg> tag */}
+                                {option.img.endsWith('.svg') ? (
+                                    <img
+                                        src={option.img}
+                                        alt={option.label}
+                                        className="w-14 h-14"
+                                        style={{
+                                            color: "currentColor",
+                                            filter: cab.value === option.value ? "invert(0.8)" : "invert(0.5)",
+                                        }}
+                                    />
+                                ) : (
+                                    <Image src={option.img} alt={option.label} fill className="object-contain" />
+                                )}
                             </div>
                             <span className="font-semibold text-gray-800 dark:text-gray-100">{option.label}</span>
                             <span className="text-xs text-gray-500 dark:text-gray-400">{option.desc}</span>
