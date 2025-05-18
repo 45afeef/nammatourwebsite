@@ -1,27 +1,30 @@
 'use client';
 
 import React, { useState } from "react";
-import Image from "next/image";
+
+import SedanSVG from "@/components/svg/sedan";
+import SuvSVG from "@/components/svg/suv";
+import TempoSVG from "@/components/svg/tempo";
 
 const CAB_OPTIONS = [
     {
         label: "Sedan",
         value: "sedan",
-        img: "/images/cabs/sedan.svg",
+        Icon: SedanSVG,
         seats: 4,
         desc: "Comfortable for small families or business trips."
     },
     {
         label: "SUV",
         value: "suv",
-        img: "/images/cabs/suv.svg",
+        Icon:  SuvSVG,
         seats: 6,
         desc: "Spacious and perfect for group travel."
     },
     {
         label: "Tempo Traveller",
         value: "tempo",
-        img: "/images/cabs/tempo.svg",
+        Icon:  TempoSVG,
         seats: 12,
         desc: "Ideal for large groups and tours."
     }
@@ -80,20 +83,7 @@ export default function CabsPage() {
                             onClick={() => handleCabChange(option)}
                         >
                             <div className="w-16 h-16 mb-2 relative flex items-center justify-center text-black dark:text-white">
-                                {/* NOTE: For SVG color adaptation, ensure your SVGs use fill="currentColor" in the <svg> tag */}
-                                {option.img.endsWith('.svg') ? (
-                                    <img
-                                        src={option.img}
-                                        alt={option.label}
-                                        className="w-14 h-14"
-                                        style={{
-                                            color: "currentColor",
-                                            filter: cab.value === option.value ? "invert(0.8)" : "invert(0.5)",
-                                        }}
-                                    />
-                                ) : (
-                                    <Image src={option.img} alt={option.label} fill className="object-contain" />
-                                )}
+                                <option.Icon />
                             </div>
                             <span className="font-semibold text-gray-800 dark:text-gray-100">{option.label}</span>
                             <span className="text-xs text-gray-500 dark:text-gray-400">{option.desc}</span>
