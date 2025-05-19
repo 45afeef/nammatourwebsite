@@ -1,21 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #ffffff; /* Light background */
+  --foreground: #111111; /* High contrast text */
+  --brand-green: #032e15; /* Brand green */
+  --brand-yellow: #ffd600; /* Brand yellow */
+  --secondary-background: #f5f7fa; /* Secondary background for light */
+  --secondary-foreground: #111111; /* Secondary text for light */
+  --accent: #005f2f; /* Deep green accent */
+  --error: #d32f2f;
+  --success: #388e3c;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-secondary-background: var(--secondary-background);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-brand-green: var(--brand-green);
+  --color-brand-yellow: var(--brand-yellow);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0a0a0a; /* Dark background */
+    --foreground: #f5f7fa; /* High contrast text */
+    --brand-green: #032e15; /* Brand green */
+    --brand-yellow: #ffd600; /* Brand yellow */
+    --secondary-background: #181f1b; /* Secondary background for dark */
+    --secondary-foreground: #f5f7fa; /* Secondary text for dark */
+    --accent: #ffd600; /* Yellow accent for dark */
+    --error: #ff5252;
+    --success: #69f0ae;
   }
 }
 
@@ -23,4 +41,30 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.card {
+  background: var(--secondary-background);
+  color: var(--secondary-foreground);
+  border-radius: 1rem;
+  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.08);
+  padding: 1.5rem;
+}
+
+.text-brand-green {
+  color: var(--brand-green);
+}
+
+.text-brand-yellow {
+  color: var(--brand-yellow);
+}
+
+.bg-brand-green {
+  background: var(--brand-green);
+  color: #fff;
+}
+
+.bg-brand-yellow {
+  background: var(--brand-yellow);
+  color: #111;
 }
