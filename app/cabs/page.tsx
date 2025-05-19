@@ -17,14 +17,14 @@ const CAB_OPTIONS = [
     {
         label: "SUV",
         value: "suv",
-        Icon:  SuvSVG,
+        Icon: SuvSVG,
         seats: 6,
         desc: "Spacious and perfect for group travel."
     },
     {
         label: "Tempo Traveller",
         value: "tempo",
-        Icon:  TempoSVG,
+        Icon: TempoSVG,
         seats: 12,
         desc: "Ideal for large groups and tours."
     }
@@ -91,7 +91,7 @@ export default function CabsPage() {
                     ))}
                 </div>
                 <form className="space-y-4" onSubmit={handleSubmit} noValidate>
-                    <div className="flex gap-4">
+                    <div className="flex flex-col md:flex-row gap-4">
                         <div className="flex-1">
                             <label className="block text-gray-700 dark:text-gray-200 mb-1">Pickup Point</label>
                             <input type="text" className={`w-full rounded-lg border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white p-2 ${errors.pickup ? 'border-red-500' : ''}`} value={pickup} onChange={e => setPickup(e.target.value)} placeholder="Enter pickup location" required />
@@ -103,12 +103,12 @@ export default function CabsPage() {
                             {errors.drop && <p className="text-xs text-red-500 mt-1">{errors.drop}</p>}
                         </div>
                     </div>
-                    <div className="flex gap-4">
+                    <div className="flex flex-col md:flex-row gap-4">
                         <div className="flex-1">
                             <label className="block text-gray-700 dark:text-gray-200 mb-1">Duration</label>
                             <div className="flex gap-2">
-                                <input type="number" min={1} className={`w-20 rounded-lg border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white p-2 ${errors.duration ? 'border-red-500' : ''}`} value={duration} onChange={e => setDuration(Number(e.target.value))} required />
-                                <select className="rounded-lg border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white p-2" value={durationType} onChange={e => setDurationType(e.target.value)}>
+                                <input type="number" min={1} className={`flex-1 w-20 rounded-lg border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white p-2 ${errors.duration ? 'border-red-500' : ''}`} value={duration} onChange={e => setDuration(Number(e.target.value))} required />
+                                <select className="flex-1 rounded-lg border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white p-2" value={durationType} onChange={e => setDurationType(e.target.value)}>
                                     <option value="day">Day(s)</option>
                                     <option value="night">Night(s)</option>
                                 </select>
@@ -117,12 +117,24 @@ export default function CabsPage() {
                         </div>
                         <div className="flex-1">
                             <label className="block text-gray-700 dark:text-gray-200 mb-1">Seat Capacity</label>
-                            <input type="number" min={1} max={cab.seats} className={`w-full rounded-lg border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white p-2 ${errors.seats ? 'border-red-500' : ''}`} value={seats} onChange={e => setSeats(Number(e.target.value))} required />
-                            <span className="text-xs text-gray-500 dark:text-gray-400">Max: {cab.seats}</span>
+                            <div className="relative">
+                                <input
+                                    type="number"
+                                    min={1}
+                                    max={cab.seats}
+                                    className={`w-full rounded-lg border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white p-2 pr-16 ${errors.seats ? 'border-red-500' : ''}`}
+                                    value={seats}
+                                    onChange={e => setSeats(Number(e.target.value))}
+                                    required
+                                />
+                                <span className="absolute right-2 bottom-2 text-xs text-gray-500 dark:text-gray-400">
+                                    Max: {cab.seats}
+                                </span>
+                            </div>
                             {errors.seats && <p className="text-xs text-red-500 mt-1">{errors.seats}</p>}
                         </div>
                     </div>
-                    <div className="flex gap-4">
+                    <div className="flex flex-col md:flex-row gap-4">
                         <div className="flex-1">
                             <label className="block text-gray-700 dark:text-gray-200 mb-1">Your Name</label>
                             <input type="text" className={`w-full rounded-lg border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white p-2 ${errors.name ? 'border-red-500' : ''}`} value={name} onChange={e => setName(e.target.value)} placeholder="Enter your name" required />
