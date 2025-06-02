@@ -9,9 +9,11 @@ export default function BannerCard(
                 backgroundPosition: "center",
             }}
             className={`
-                relative flex flex-col md:mt-44 
-                mt-32 w-4/5 mx-auto p-8 
-                rounded-lg shadow-lg min-h-56 
+                relative flex flex-col 
+                md:mt-44 mt-32 mx-auto 
+                p-8 
+                w-full min-h-56 
+                rounded-lg shadow-lg 
                 text-center justify-center items-center overflow-clip
             `}
         >

@@ -16,13 +16,13 @@ export default async function Page({
       "imageUrl": "",
       "packages": [
         {
-          "title": "Affordable Group Tour Package from Bangalore to Wayanad - 1 Day",
+          "title": "Affordable Group Tour Package to Wayanad - 1 Day",
           "duration": "1 Day",
           "price": "₹4,500",
           "imageUrl": "/packages/1D-wayanad-group-tour-package.webp"
         },
         {
-          "title": "Affordable Group Tour Package from Bangalore to Wayanad - 2 Days and 1 Night",
+          "title": "Affordable Group Tour Package to Wayanad - 2 Days and 1 Night",
           "duration": "2 Days and 1 Night",
           "price": "₹4,500",
           "imageUrl": "/packages/2D1N-wayanad-group-tour-package.webp"
@@ -40,7 +40,7 @@ export default async function Page({
       "imageUrl": "",
       "packages": [
         {
-          "title": "Romantic Couple Tour Package from Bangalore to Wayanad - 2 Days and 1 Night",
+          "title": "Romantic Couple Tour Package to Wayanad - 2 Days and 1 Night",
           "duration": "2 Days and 1 Night",
           "price": "₹5,000",
           "imageUrl": "/packages/2D1N-wayanad-couple-tour-package.webp"
@@ -64,17 +64,17 @@ export default async function Page({
       "imageUrl": "",
       "packages": [
         {
-          "title": "Family-Friendly Tour Package from Anywhere to Wayanad - 1 Day",
+          "title": "Family-Friendly Tour Package to Wayanad - 1 Day",
           "duration": "1 Day",
           "price": "₹6,000",
           "imageUrl": "/packages/2D1N-wayanad-family-tour-package.webp"
         }, {
-          "title": "Family-Friendly Tour Package from Anywhere to Wayanad - 2 Days and 1 Night",
+          "title": "Family-Friendly Tour Package to Wayanad - 2 Days and 1 Night",
           "duration": "2 Days and 1 Night",
           "price": "₹6,000",
           "imageUrl": "/packages/2D1N-wayanad-family-private-pool-tour-package.webp"
         }, {
-          "title": "Family-Friendly Tour Package from Anywhere to Wayanad - 3 Days and 2 Night",
+          "title": "Family-Friendly Tour Package to Wayanad - 3 Days and 2 Night",
           "duration": "3 Days and 2 Night",
           "price": "₹6,000",
           "imageUrl": "/packages/2D1N-wayanad-family-common-pool-tour-package.webp"
@@ -178,95 +178,95 @@ export default async function Page({
       ]
     },
     {
-  "name": "Chennai to Wayanad Tour Packages",
-  "imageUrl": "",
-  "subGroups": [
+      "name": "Chennai to Wayanad Tour Packages",
+      "imageUrl": "",
+      "subGroups": [
+        {
+          "name": "Chennai to Wayanad Group Tour Packages",
+          "imageUrl": "/packages/b2b-group-tour-package.webp",
+        },
+        {
+          "name": "Chennai to Wayanad Couple Tour Packages",
+          "imageUrl": "/packages/b2b-couple-tour-package.webp",
+        },
+        {
+          "name": "Chennai to Wayanad Private Tour Packages",
+          "imageUrl": "/packages/b2b-private-tour-package.webp",
+        }
+      ],
+    },
     {
       "name": "Chennai to Wayanad Group Tour Packages",
-      "imageUrl": "/packages/b2b-group-tour-package.webp",
+      "imageUrl": "",
+      "packages": [
+        {
+          "title": "Budget Group Tour Package from Chennai to Wayanad - 2 Days and 1 Night",
+          "duration": "2 Days and 1 Night",
+          "price": "₹4,500",
+          "imageUrl": "/packages/2D1N-bangalore-wayanad-tour-package.webp"
+        },
+        {
+          "title": "Budget Group Tour Package from Chennai to Wayanad - 3 Days and 2 Night",
+          "duration": "3 Days and 2 Night",
+          "price": "₹4,500",
+          "imageUrl": "/packages/2D1N-wayanad-family-tour-package.webp"
+        },
+        {
+          "title": "Budget Group Tour Package from Chennai to Wayanad - 4 Days and 3 Night",
+          "duration": "4 Days and 3 Night",
+          "price": "₹4,500",
+          "imageUrl": "/packages/2D1N-wayanad-family-common-pool-tour-package.webp"
+        },
+      ]
     },
     {
       "name": "Chennai to Wayanad Couple Tour Packages",
-      "imageUrl": "/packages/b2b-couple-tour-package.webp",
+      "imageUrl": "",
+      "packages": [
+        {
+          "title": "Romantic Couple Tour Package from Chennai to Wayanad - 2 Days and 1 Night",
+          "duration": "2 Days and 1 Night",
+          "price": "₹5,000",
+          "imageUrl": "/packages/3D2N-wayanad-b2b-couple-tour-package.webp"
+        },
+        {
+          "title": "Romantic Couple Tour Package from Chennai to Wayanad - 3 Days and 2 Night",
+          "duration": "3 Days and 2 Night",
+          "price": "₹9,000",
+          "imageUrl": "/packages/2D1N-wayanad-family-private-pool-tour-package.webp"
+        },
+        {
+          "title": "Romantic Couple Tour Package from Chennai to Wayanad - 4 Days and 3 Night",
+          "duration": "4 Days and 3 Night",
+          "price": "₹15,000",
+          "imageUrl": "/packages/2D1N-wayanad-family-tour-package.webp"
+        },
+      ]
     },
     {
       "name": "Chennai to Wayanad Private Tour Packages",
-      "imageUrl": "/packages/b2b-private-tour-package.webp",
+      "imageUrl": "",
+      "packages": [
+        {
+          "title": "Exclusive Private Tour Package from Chennai to Wayanad - 2 Days and 2 Nights",
+          "duration": "2 Days and 2 Nights",
+          "price": "₹10,000",
+          "imageUrl": "/packages/3D2N-bangalore-wayanad-tour-package.webp"
+        },
+        {
+          "title": "Exclusive Private Tour Package from Chennai to Wayanad - 3 Days and 2 Nights",
+          "duration": "3 Days and 2 Nights",
+          "price": "₹15,000",
+          "imageUrl": "/packages/3D2N-wayanad-group-tour-package.webp"
+        },
+        {
+          "title": "Exclusive Private Tour Package from Chennai to Wayanad - 4 Days and 3 Nights",
+          "duration": "4 Days and 3 Nights",
+          "price": "₹18,000",
+          "imageUrl": "/packages/3D2N-wayanad-couple-tour-package.webp"
+        },
+      ]
     }
-  ],
-},
-{
-  "name": "Chennai to Wayanad Group Tour Packages",
-  "imageUrl": "",
-  "packages": [
-    {
-      "title": "Budget Group Tour Package from Chennai to Wayanad - 2 Days and 1 Night",
-      "duration": "2 Days and 1 Night",
-      "price": "₹4,500",
-      "imageUrl": "/packages/2D1N-bangalore-wayanad-tour-package.webp"
-    },
-    {
-      "title": "Budget Group Tour Package from Chennai to Wayanad - 3 Days and 2 Night",
-      "duration": "3 Days and 2 Night",
-      "price": "₹4,500",
-      "imageUrl": "/packages/2D1N-wayanad-family-tour-package.webp"
-    },
-    {
-      "title": "Budget Group Tour Package from Chennai to Wayanad - 4 Days and 3 Night",
-      "duration": "4 Days and 3 Night",
-      "price": "₹4,500",
-      "imageUrl": "/packages/2D1N-wayanad-family-common-pool-tour-package.webp"
-    },
-  ]
-},
-{
-  "name": "Chennai to Wayanad Couple Tour Packages",
-  "imageUrl": "",
-  "packages": [
-    {
-      "title": "Romantic Couple Tour Package from Chennai to Wayanad - 2 Days and 1 Night",
-      "duration": "2 Days and 1 Night",
-      "price": "₹5,000",
-      "imageUrl": "/packages/3D2N-wayanad-b2b-couple-tour-package.webp"
-    },
-    {
-      "title": "Romantic Couple Tour Package from Chennai to Wayanad - 3 Days and 2 Night",
-      "duration": "3 Days and 2 Night",
-      "price": "₹9,000",
-      "imageUrl": "/packages/2D1N-wayanad-family-private-pool-tour-package.webp"
-    },
-    {
-      "title": "Romantic Couple Tour Package from Chennai to Wayanad - 4 Days and 3 Night",
-      "duration": "4 Days and 3 Night",
-      "price": "₹15,000",
-      "imageUrl": "/packages/2D1N-wayanad-family-tour-package.webp"
-    },
-  ]
-},
-{
-  "name": "Chennai to Wayanad Private Tour Packages",
-  "imageUrl": "",
-  "packages": [
-    {
-      "title": "Exclusive Private Tour Package from Chennai to Wayanad - 2 Days and 2 Nights",
-      "duration": "2 Days and 2 Nights",
-      "price": "₹10,000",
-      "imageUrl": "/packages/3D2N-bangalore-wayanad-tour-package.webp"
-    },
-    {
-      "title": "Exclusive Private Tour Package from Chennai to Wayanad - 3 Days and 2 Nights",
-      "duration": "3 Days and 2 Nights",
-      "price": "₹15,000",
-      "imageUrl": "/packages/3D2N-wayanad-group-tour-package.webp"
-    },
-    {
-      "title": "Exclusive Private Tour Package from Chennai to Wayanad - 4 Days and 3 Nights",
-      "duration": "4 Days and 3 Nights",
-      "price": "₹18,000",
-      "imageUrl": "/packages/3D2N-wayanad-couple-tour-package.webp"
-    },
-  ]
-}
 
   ];
 
