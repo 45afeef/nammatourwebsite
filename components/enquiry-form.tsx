@@ -16,13 +16,13 @@ export default function EnquiryForm() {
                                     <FaPhone className="mr-3" size={24} />
                                     +91 755 800 9733
                                 </a>
-                                <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="flex items-center text-lg text-primary hover:underline">
+                                <a href="https://wa.me/917012953286" target="_blank" rel="noopener noreferrer" className="flex items-center text-lg text-primary hover:underline">
                                     <FaWhatsapp className="mr-3" size={24} />
                                     Chat on WhatsApp
                                 </a>
                                 <a href="mailto:info@namm-tour.com" className="flex items-center text-lg text-primary hover:underline">
                                     <FaEnvelope className="mr-3" size={24} />
-                                    info@namm-tour.com
+                                    info@nammatour.com
                                 </a>
 
                             </div>

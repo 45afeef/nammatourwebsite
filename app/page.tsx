@@ -71,7 +71,7 @@ export default function Home() {
         </div>
       </section>
       {/* Packages Section */}
-      <PackageList />
+      <div className="mx-auto px-4 max-w-11/12"><PackageList /></div>
       {/* Testimonials Section */}
       <section className="py-20">
         <div className="container mx-auto px-4 md:max-w-11/12">
