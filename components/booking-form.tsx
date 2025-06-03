@@ -4,6 +4,7 @@ const BookingForm = () => {
 
 
     const [duration, setDuration] = useState("3d2n"); // Default duration
+    // WHY: Default duration is set to "3d2n" (3 days, 2 nights) as it's a common tour length and provides a sensible default for most users.
 
     const getNextFriday = () => {
         const today = new Date();
@@ -12,10 +13,12 @@ const BookingForm = () => {
         result.setDate(today.getDate() + daysUntilFriday);
         return result;
     };
+    // WHY: getNextFriday helps preselect a start date that is likely to be convenient for most users (weekend trips are popular).
 
     const defaultStartDate = getNextFriday();
     const defaultEndDate = new Date(defaultStartDate);
     defaultEndDate.setDate(defaultStartDate.getDate() + 2);
+    // WHY: Default start and end dates are set to the next Friday and the following Sunday (3 days, 2 nights), matching the default duration and user expectations for weekend getaways.
 
     const [form, setForm] = useState({
         packageType: "Budget",
@@ -25,6 +28,7 @@ const BookingForm = () => {
         kids: 0,
         name: "",
     });
+    // WHY: The form state holds all user input. Defaults are chosen to minimize user effort for the most common booking scenario.
     const [submitting, setSubmitting] = useState(false);
 
     // Predefined durations
@@ -34,6 +38,7 @@ const BookingForm = () => {
         { key: "3d2n", label: "3D2N" },
         { key: "4d3n", label: "4D3N" },
     ];
+    // WHY: Predefined durations are shown as chips for quick selection, matching popular package options and reducing user friction.
 
     // Helper: get days between two dates
     function getDays(start: string, end: string) {
@@ -42,6 +47,7 @@ const BookingForm = () => {
         const e = new Date(end);
         return Math.round((e.getTime() - s.getTime()) / (1000 * 60 * 60 * 24));
     }
+    // WHY: getDays calculates the number of days between two dates, used for duration logic and validation.
 
     // Helper to get label for custom duration
     function getCustomDurationLabel(start: string, end: string) {
@@ -54,9 +60,63 @@ const BookingForm = () => {
         if (days === 3) return "4D3N";
         return `${days + 1}D${days}N`;
     }
+    // WHY: getCustomDurationLabel provides a user-friendly label for custom durations, so users always see a meaningful description even for non-standard trips.
+
+    // Helper: get human-friendly date label
+    function getHumanFriendlyLabel(dateStr: string) {
+        if (!dateStr) return "";
+        const date = new Date(dateStr);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        date.setHours(0, 0, 0, 0);
+        const dayDiff = Math.round((date.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+        const day = date.getDay();
+        // Map of major Indian holidays (add more as needed)
+        const holidays = [
+            { label: "Onam", month: 8, day: 6 }, // Aug 6 (example, update as per year)
+            { label: "Holi", month: 2, day: 14 }, // Mar 14 (example)
+            { label: "Christmas", month: 11, day: 25 },
+            { label: "Dussehra", month: 9, day: 2 }, // Oct 2 (example)
+            // Add more as needed
+        ];
+        // Check for holidays
+        for (const h of holidays) {
+            if (date.getMonth() === h.month && date.getDate() === h.day) {
+                return h.label;
+            }
+        }
+        // Check for next Friday/Saturday/Sunday
+        if (dayDiff === 0) return "Today";
+        if (dayDiff === 1) return "Tomorrow";
+        if (dayDiff > 1 && dayDiff <= 7) {
+            const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][day];
+            return `Next ${weekday}`;
+        }
+        // If within this month
+        if (date.getMonth() === today.getMonth()) {
+            return `${date.getDate()} ${date.toLocaleString('default', { month: 'short' })}`;
+        }
+        // Fallback: show full date in a friendly format
+        return date.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+    }
+    // WHY: getHumanFriendlyLabel translates a date into a label like "Next Friday" or "Onam" to reduce cognitive load and make the form more relatable for users.
+
     // When start or end date changes, update duration based on a regex match
     useEffect(() => {
         if (!form.startDate || !form.endDate) return;
+        if (new Date(form.startDate) > new Date(form.endDate)) {
+            const regex = /^(\d+)d(?:\s*(\d+)n)?$/;
+            const match = duration.match(regex);
+            if (match) {
+                const totalDays = parseInt(match[1], 10);
+                const daysOffset = totalDays - 1;
+                const s = new Date(form.startDate);
+                s.setDate(s.getDate() + daysOffset);
+                const newEndDate = s.toISOString().slice(0, 10);
+                setForm(f => ({ ...f, endDate: newEndDate }));
+            }
+            return;
+        }
         const days = getDays(form.startDate, form.endDate);
         if (days < 0) return;
         // Create a duration string like "1d" or "2d1n", "9d8n", etc.
@@ -66,6 +126,7 @@ const BookingForm = () => {
             setDuration(newDuration);
         }
     }, [form.startDate, form.endDate]);
+    // WHY: When start or end date changes, update duration to match the new selection, ensuring the UI and logic stay in sync. Also, if end date is before start, auto-correct it to match the selected duration.
 
     // When duration changes, update end date if start date is set
     useEffect(() => {
@@ -86,13 +147,16 @@ const BookingForm = () => {
             setForm(f => ({ ...f, endDate }));
         }
     }, [duration]);
+    // WHY: When duration changes, update the end date to match the selected duration, so the form always reflects the user's intent and prevents mismatches.
 
     const handleDuration = (d: string) => setDuration(d);
+    // WHY: handleDuration is a simple setter for duration, used by the chip UI for clarity and separation of concerns.
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setForm(f => ({ ...f, [name]: name === "adults" || name === "kids" ? Number(value) : value }));
     };
+    // WHY: handleChange updates form state for all fields, converting adults/kids to numbers for validation and calculation.
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -114,6 +178,7 @@ const BookingForm = () => {
         window.open(url, '_blank');
         setSubmitting(false);
     };
+    // WHY: handleSubmit validates the form, prevents invalid bookings, and opens WhatsApp with a prefilled message for seamless booking experience.
 
 
     return (
@@ -152,11 +217,32 @@ const BookingForm = () => {
                 <div className="flex gap-4">
                     <div className="flex-1">
                         <label className="block font-semibold mb-1">Start Date</label>
-                        <input name="startDate" type="date" value={form.startDate} onChange={handleChange} className="w-full border rounded p-2 dark:bg-gray-900 dark:text-gray-100 dark:border-gray-700" />
+                        {form.startDate && (
+                            <div className="text-xs text-blue-600 mb-1">{getHumanFriendlyLabel(form.startDate)}</div>
+                        )}
+                        <input
+                            name="startDate"
+                            type="date"
+                            value={form.startDate}
+                            min={new Date().toISOString().slice(0, 10)}
+                            onChange={handleChange}
+                            className="w-full border rounded p-2 dark:bg-gray-900 dark:text-gray-100 dark:border-gray-700"
+                        />
                     </div>
                     <div className="flex-1">
                         <label className="block font-semibold mb-1">End Date</label>
-                        <input name="endDate" type="date" value={form.endDate} onChange={handleChange} className="w-full border rounded p-2 dark:bg-gray-900 dark:text-gray-100 dark:border-gray-700" disabled={!form.startDate} min={form.startDate || undefined} />
+                        {form.endDate && (
+                            <div className="text-xs text-blue-600 mb-1">{getHumanFriendlyLabel(form.endDate)}</div>
+                        )}
+                        <input
+                            name="endDate"
+                            type="date"
+                            value={form.endDate}
+                            onChange={handleChange}
+                            disabled={!form.startDate}
+                            min={form.startDate || undefined}
+                            className="w-full border rounded p-2 dark:bg-gray-900 dark:text-gray-100 dark:border-gray-700"
+                        />
                     </div>
                 </div>
                 {/* Day/Night Duration Chip Selection */}
