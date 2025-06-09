@@ -1,6 +1,6 @@
 import { TourPackageRepository } from './repositories/tour-package-repository';
 import { DataService } from './services/data-service';
-import { TourPackage } from './models/tour-package';
+import { TourPackage, TourPackageResponse } from './models/tour-package';
 import { ContentfulAdapter } from './adapters/contentful-adapter';
 
 
@@ -14,7 +14,7 @@ const API_BASE_URL: string = process.env.NEXT_PUBLIC_API_BASE_URL!;
 // Using CmsAdapter for TourPakcage data (as tourPackages  are managed by CMS)
 // const tourPackageCmsAdapter = new CmsAdapter<TourPackage>(CMS_API_URL, 'packagePage');
 // Using ContentfulAdapter for TourPakcage data as packages are managed by Contentful
-const tourPackageContentfulAdapter = new ContentfulAdapter<TourPackage>('packagePage');
+const tourPackageContentfulAdapter = new ContentfulAdapter<TourPackageResponse>('packagePage');
 
 // --- Instantiate Repositories (if using them) ---
 export const tourPackageRepository = new TourPackageRepository(tourPackageContentfulAdapter);
