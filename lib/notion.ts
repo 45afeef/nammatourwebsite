@@ -1,46 +1,49 @@
 import { Client } from '@notionhq/client';
+import { BlogPost } from '@/types/notion';
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 const databaseId = process.env.NOTION_DATABASE_ID;
 
-export async function getAllPosts() {
-    notion.blocks
-  const response = await notion.databases.query({
-    database_id: databaseId!,
-    // filter: { property: 'Published', checkbox: { equals: true } },
-    // sorts: [{ property: 'Date', direction: 'descending' }],
-  });
-  return response.results.map((page: any) => ({
-    id: page.id,
-    title: page.properties.Name.title[0]?.plain_text || '',
-    // slug: page.properties.Slug.rich_text[0]?.plain_text || '',
-    // date: page.properties.Date.date.start,
-    // cover: page.cover?.external?.url || page.cover?.file?.url || '',
-    // excerpt: page.properties.Excerpt?.rich_text[0]?.plain_text || '',
-  }));
-}
-
-export async function getPostById(id: string) {
-  const response = await notion.databases.query({
-    database_id: databaseId!,
-    // filter: {
-    //   and: [
-    //     { property: 'Slug', rich_text: { equals: slug } },
-    //     { property: 'Published', checkbox: { equals: true } },
-    //   ],
-    // },
-  });
-  const page = response.results[0];
-  if (!page) return null;
-  return page;
+function pageToBlogPost(page: any): BlogPost {
   return {
     id: page.id,
-    // title: page.properties.Name.title[0]?.plain_text || '',
-    // slug: page.properties.Slug.rich_text[0]?.plain_text || '',
-    // date: page.properties.Date.date.start,
-    // cover: page.cover?.external?.url || page.cover?.file?.url || '',
-    // excerpt: page.properties.Excerpt?.rich_text[0]?.plain_text || '',
+    title: page.properties.Name.title[0]?.plain_text || '',
+    slug: page.properties.Slug?.rich_text[0]?.plain_text || '',
+    date: page.properties.PublishedDate?.date?.start || '',
+    cover: page.cover?.external?.url || page.cover?.file?.url || '',
+    excerpt: page.properties.Excerpt?.rich_text[0]?.plain_text || '',
+    author: page.properties.Author?.people[0]?.name || '',
+    authorAvatar: page.properties.Author?.people[0]?.avatar_url || '',
+    tags: page.properties.Tags?.multi_select?.map((t: any) => t.name) || [],
+    readingTime: page.properties.ReadingTime?.rich_text[0]?.plain_text || '',
+    featured: page.properties.Featured?.checkbox || false,
+    views: page.properties.Views?.number || 0,
+    likes: page.properties.Likes?.number || 0,
   };
+}
+
+export async function getAllPosts(): Promise<BlogPost[]> {
+  const response = await notion.databases.query({
+    database_id: databaseId!,
+    filter: { property: 'Published', checkbox: { equals: true } },
+    sorts: [{ property: 'PublishedDate', direction: 'descending' }],
+  });
+  return response.results.map(pageToBlogPost);
+}
+
+export async function getPostById(id: string): Promise<BlogPost | null> {
+  try {
+    const page: any = await notion.pages.retrieve({ page_id: id });
+    if (
+      page.properties?.Published &&
+      page.properties.Published.checkbox !== true
+    ) {
+      return null;
+    }
+    return pageToBlogPost(page);
+  } catch (error) {
+    return null;
+  }
 }
 
 export async function getPostBlocks(postId: string) {
@@ -87,9 +90,9 @@ export async function getBlockTree(blockId: string): Promise<any[]> {
         } else if (block.type === 'synced_block') {
           const syncedChildren = await getBlockTree(block.id);
           return { ...block, synced_block: { ...block.synced_block, children: syncedChildren } };
-        // } else {
-        //   const children = await getBlockTree(block.id);
-        //   return { ...block, children };
+          // } else {
+          //   const children = await getBlockTree(block.id);
+          //   return { ...block, children };
         }
       }
       return block;
