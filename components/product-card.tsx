@@ -12,11 +12,11 @@ export default function ProductCard({
     imgUrl: string;
 }) {
     return (
-        <div className=" shadow-lg rounded-xl overflow-hidden border-0 hover:shadow-xl transition-shadow duration-300 group shadow-foreground/30 ">
+        <div className="shadow-lg rounded-xl overflow-hidden border-0 hover:shadow-xl card-hover-smooth group shadow-foreground/30 ">
             <img
                 src={imgUrl}
                 alt={alt || name}
-                className="w-full h-60 object-cover transform transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-60 object-cover card-hover-smooth"
             />
             <div className="p-4 flex flex-col h-44">
                 <p className="text-sm text-gray-500">{category}</p>

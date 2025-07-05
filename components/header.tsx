@@ -45,10 +45,10 @@ export default function Header() {
             </header>
             {/* Mobile Navigation */}
             {mobileMenuOpen &&
-                <div className="fixed inset-0 z-50 bg-foreground/50 duration-700 opacity-50" />
+                <div className="fixed inset-0 z-50 bg-foreground/50 duration-1000 opacity-50" />
             }
             <div
-                className={`fixed inset-0 z-50 flex transition duration-700 ease-in-out ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}
+                className={`fixed inset-0 z-50 flex transition duration-1000 ease-in-out ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}
                 onClick={closeMobileMenu}
             >
                 <div className="relative ml-auto w-64 h-full bg-background text-foreground shadow-lg">

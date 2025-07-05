@@ -79,7 +79,7 @@ export default function CabsPage() {
                         <button
                             key={option.value}
                             type="button"
-                            className={`group flex flex-col items-center border-2 rounded-xl p-3 w-32 transition-all duration-200 focus:outline-none ${cab.value === option.value ? 'border-green-500 bg-green-50 dark:bg-green-900' : 'border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800'}`}
+                            className={`group flex flex-col items-center border-2 rounded-xl p-3 w-32 transition-all duration-500 focus:outline-none ${cab.value === option.value ? 'border-green-500 bg-green-50 dark:bg-green-900' : 'border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800'}`}
                             onClick={() => handleCabChange(option)}
                         >
                             <div className="w-16 h-16 mb-2 relative flex items-center justify-center text-black dark:text-white">
@@ -148,7 +148,7 @@ export default function CabsPage() {
                     </div>
                     <button
                         type="submit"
-                        className="block w-full mt-6 bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl text-lg text-center shadow-lg transition-all duration-200"
+                        className="block w-full mt-6 bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl text-lg text-center shadow-lg transition-all duration-500"
                     >
                         🚕 Get Custom Quote on WhatsApp
                     </button>

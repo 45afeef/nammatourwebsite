@@ -1,0 +1,8 @@
+.card-hover-smooth {
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.card-hover-smooth:hover, .group:hover .card-hover-smooth {
+  /* scale and shadow for hover */
+  transform: scale(1.06);
+  box-shadow: 0 12px 32px 0 rgba(0,0,0,0.13);
+}
