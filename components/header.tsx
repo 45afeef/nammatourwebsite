@@ -18,7 +18,7 @@ export default function Header() {
     return (
         <>
             {/* Header */}
-            <header className="fixed top-0 left-0 right-0 bg-background/90 text-foreground shadow-lg z-50">
+            <header className="top-0 left-0 right-0 bg-background/90 text-foreground shadow-lg z-50">
                 <nav className="w-full px-4 py-6">
                     <div className="container mx-auto flex justify-between items-center">
                         <div className="logo ml-10">

@@ -1,0 +1,230 @@
+/* Medium-like blog styles - customized for true Medium feel */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;500&display=swap');
+
+.medium-blog {
+  max-width: 680px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 2.5rem 1.5rem 4rem 1.5rem;
+  font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+  color: #222;
+}
+.medium-blog-h1, .medium-blog h1 {
+  font-family: 'Merriweather', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.15;
+}
+.medium-blog-h2, .medium-blog h2 {
+  font-family: 'Merriweather', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.medium-blog-h3, .medium-blog h3 {
+  font-family: 'Merriweather', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
+}
+.medium-blog-paragraph, .medium-blog p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 1.4em;
+  color: #222;
+}
+.medium-blog-img, .medium-blog img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 2.5rem 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.medium-blog-pre, .medium-blog pre {
+  background: #f6f8fa;
+  padding: 1.2em;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 1rem;
+  margin: 1.5em 0;
+  font-family: 'Roboto Mono', 'Menlo', 'Monaco', 'Consolas', monospace;
+}
+.medium-blog-blockquote, .medium-blog blockquote {
+  border-left: 4px solid #ffd700;
+  background: #fffbe6;
+  padding: 1.2em 2em;
+  margin: 2em 0;
+  color: #555;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+.medium-blog-ol,  .medium-blog ol {
+  list-style-type: decimal;
+  margin-left: 2.2em;
+  margin-bottom: 1.2em;
+  font-size: 1.1rem;
+}
+.medium-blog-ul, .medium-blog-ol, .medium-blog ul, .medium-blog ol {
+  margin-left: 2.2em;
+  margin-bottom: 1.2em;
+  font-size: 1.1rem;
+}
+.medium-blog-ul li, .medium-blog-ol li, .medium-blog ul li, .medium-blog ol li {
+  margin-bottom: 0.5em;
+}
+.medium-blog-hr, .medium-blog hr {
+  border: none;
+  border-top: 1.5px solid #eee;
+  margin: 2.5em 0;
+}
+.medium-blog a {
+  color: #1a8917;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.medium-blog a:hover {
+  color: #0f730c;
+}
+.medium-blog .blog-cover, .medium-blog-blog-cover {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 2.5rem;
+}
+.medium-blog-callout {
+  background: #f4f4f4;
+  border-left: 4px solid #ffd700;
+  padding: 1.2em 1.5em;
+  margin: 1.5em 0;
+  font-size: 1.1rem;
+  border-radius: 6px;
+}
+.medium-blog-todo {
+  font-size: 1.1rem;
+  margin: 0.7em 0;
+}
+.medium-blog-bookmark {
+  background: #f9f9f9;
+  border-left: 3px solid #1a8917;
+  padding: 0.8em 1.2em;
+  border-radius: 6px;
+  margin: 1.2em 0;
+}
+.medium-blog-embed {
+  margin: 2em 0;
+  border-radius: 8px;
+  min-height: 300px;
+}
+.medium-blog-file, .medium-blog-pdf, .medium-blog-video, .medium-blog-audio {
+  margin: 1.5em 0;
+}
+.medium-blog-table {
+  background: #f6f8fa;
+  border-radius: 8px;
+  padding: 1em;
+  margin: 2em 0;
+}
+.medium-blog-toc {
+  background: #f9f9f9;
+  border-left: 3px solid #aaa;
+  padding: 1em 1.5em;
+  border-radius: 6px;
+  margin: 1.5em 0;
+  font-size: 1rem;
+  color: #888;
+}
+.medium-blog-unsupported, .medium-blog-unknown {
+  color: #b71c1c;
+  background: #fff0f0;
+  padding: 0.7em 1em;
+  border-radius: 6px;
+  margin: 1em 0;
+  font-size: 1rem;
+}
+.medium-blog-breadcrumb {
+  color: #aaa;
+  font-size: 0.95rem;
+  margin: 1em 0;
+}
+.medium-blog-child-database {
+  background: #f6f8fa;
+  border-left: 3px solid #1a8917;
+  padding: 1em 1.5em;
+  border-radius: 6px;
+  margin: 1.5em 0;
+  font-size: 1.1rem;
+}
+.medium-blog-child-page {
+  background: #f9f9f9;
+  border-left: 3px solid #ffd700;
+  padding: 1em 1.5em;
+  border-radius: 6px;
+  margin: 1.5em 0;
+  font-size: 1.1rem;
+}
+.medium-blog-column-list {
+  display: flex;
+  gap: 2em;
+  margin: 2em 0;
+}
+.medium-blog-column {
+  flex: 1 1 0;
+  min-width: 0;
+}
+.medium-blog-equation {
+  background: #f6f8fa;
+  font-family: 'Roboto Mono', monospace;
+  padding: 0.7em 1em;
+  border-radius: 6px;
+  margin: 1em 0;
+  font-size: 1.1rem;
+}
+.medium-blog-link-preview {
+  background: #f9f9f9;
+  border-left: 3px solid #0077cc;
+  padding: 1em 1.5em;
+  border-radius: 6px;
+  margin: 1.5em 0;
+  font-size: 1.1rem;
+}
+.medium-blog-link-to-page {
+  color: #1a8917;
+  font-weight: 500;
+  text-decoration: underline;
+  margin: 1em 0;
+  display: block;
+}
+.medium-blog-synced-block {
+  background: #f6f8fa;
+  border-left: 3px solid #aaa;
+  padding: 1em 1.5em;
+  border-radius: 6px;
+  margin: 1.5em 0;
+}
+.medium-blog-template {
+  background: #fffbe6;
+  border-left: 3px solid #ffd700;
+  padding: 1em 1.5em;
+  border-radius: 6px;
+  margin: 1.5em 0;
+  font-size: 1.1rem;
+}
+.medium-blog-toggle {
+  background: #f9f9f9;
+  border-left: 3px solid #1a8917;
+  padding: 1em 1.5em;
+  border-radius: 6px;
+  margin: 1.5em 0;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+.medium-blog-audio {
+  margin: 1.5em 0;
+  width: 100%;
+}

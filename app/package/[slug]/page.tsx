@@ -89,34 +89,46 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
           {/* Overview, Inclusions, Exclusions, Itinerary */}
           <div id="tab-content">
-            <div>
-              <div className="font-semibold text-lg mb-1 dark:text-gray-100">Overview</div>
-              <div className="text-gray-700 dark:text-gray-300 text-sm">
-                {tourPackage.overview}
+            {
+              tourPackage.overview &&
+              <div>
+                <div className="font-semibold text-lg mb-1 dark:text-gray-100">Overview</div>
+                <div className="text-gray-700 dark:text-gray-300 text-sm">
+                  {tourPackage.overview}
+                </div>
               </div>
-            </div>
-            <div>
-              <div className="font-semibold text-lg mb-1 dark:text-gray-100">Inclusions</div>
-              <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300 text-sm space-y-1">
-                {tourPackage.inclusion.map((item, idx) => (
-                  <li key={idx}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <div className="font-semibold text-lg mb-1 dark:text-gray-100">Exclusions</div>
-              <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300 text-sm space-y-1">
-                {tourPackage.exclusion.map((item, idx) => (
-                  <li key={idx}>{item}</li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <div className="font-semibold text-lg mb-1 dark:text-gray-100">Itinerary</div>
-              <div className="text-gray-700 dark:text-gray-300 text-sm">
-                {tourPackage.itinerary}
+            }
+            {
+              tourPackage.inclusion &&
+              <div>
+                <div className="font-semibold text-lg mb-1 dark:text-gray-100">Inclusions</div>
+                <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300 text-sm space-y-1">
+                  {tourPackage.inclusion.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
+                </ul>
               </div>
-            </div>
+            }
+            {
+              tourPackage.exclusion &&
+              <div>
+                <div className="font-semibold text-lg mb-1 dark:text-gray-100">Exclusions</div>
+                <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300 text-sm space-y-1">
+                  {tourPackage.exclusion.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            }
+            {
+              tourPackage.itinerary &&
+              <div>
+                <div className="font-semibold text-lg mb-1 dark:text-gray-100">Itinerary</div>
+                <div className="text-gray-700 dark:text-gray-300 text-sm">
+                  {tourPackage.itinerary}
+                </div>
+              </div>
+            }
           </div>
         </div>
         {/* Price & Booking Form */}
