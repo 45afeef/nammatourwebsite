@@ -32,22 +32,22 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
       />
       <section className="container mx-auto px-4 py-6 flex flex-col md:flex-row gap-8 mb-8">
         <div className="flex-2">
-          <div className="sticky top-28 w-full bg-yellow-100 dark:bg-yellow-900 text-yellow-900 dark:text-yellow-100 text-center py-2 font-semibold">
+          <div className="sticky top-28 w-full bg-yellow-100 text-yellow-900 text-center py-2 font-semibold">
             Book now, relax later. Secure your spot—no stress, no FOMO.
           </div>
           {/* Title & Subtitle */}
           <div className="mb-4">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100 mb-2">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
               {tourPackage.title}
             </h1>
             {tourPackage.subTitle && (
-              <p className="text-lg text-gray-600 dark:text-gray-300">{tourPackage.subTitle}</p>
+              <p className="text-lg text-gray-600">{tourPackage.subTitle}</p>
             )}
           </div>
           {/* Package Info */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             {tourPackage.packageInfo?.map((point, idx) => (
-              <div key={idx} className="flex items-center gap-3 bg-gray-50 dark:bg-gray-800 p-4 rounded shadow">
+              <div key={idx} className="flex items-center gap-3 bg-gray-50 p-4 rounded shadow">
                 {point.icon && <span className="text-2xl">{point.icon}</span>}
                 <div>
                   <div className="font-semibold">{point.title}</div>
@@ -58,14 +58,14 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           </div>
           {/* Gallery */}
           <div className="mb-8">
-            <div className="font-semibold mb-2 dark:text-gray-100">Gallery</div>
+            <div className="font-semibold mb-2">Gallery</div>
             <div className="flex gap-2 overflow-x-auto">
               {tourPackage.images?.map((img, idx) => (
                 <img
                   key={idx}
                   src={img}
                   alt={`Gallery ${idx + 1}`}
-                  className="w-48 h-32 object-cover rounded border border-gray-200 dark:border-gray-700"
+                  className="w-48 h-32 object-cover rounded border border-gray-200"
                 />
               ))}
             </div>
@@ -74,7 +74,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           {/* Key Points */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
             {tourPackage.keyPoints?.map((point, idx) => (
-              <div key={idx} className="flex items-center gap-3 bg-gray-50 dark:bg-gray-800 p-4 rounded shadow">
+              <div key={idx} className="flex items-center gap-3 bg-gray-50 p-4 rounded shadow">
                 {point.icon && <span className="text-3xl">{point.icon}</span>}
                 <div>
                   <div className="font-semibold">{point.title}</div>
@@ -92,8 +92,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             {
               tourPackage.overview &&
               <div>
-                <div className="font-semibold text-lg mb-1 dark:text-gray-100">Overview</div>
-                <div className="text-gray-700 dark:text-gray-300 text-sm">
+                <div className="font-semibold text-lg mb-1">Overview</div>
+                <div className="text-gray-700 text-sm">
                   {tourPackage.overview}
                 </div>
               </div>
@@ -101,8 +101,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             {
               tourPackage.inclusion &&
               <div>
-                <div className="font-semibold text-lg mb-1 dark:text-gray-100">Inclusions</div>
-                <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300 text-sm space-y-1">
+                <div className="font-semibold text-lg mb-1">Inclusions</div>
+                <ul className="list-disc pl-5 text-gray-700 text-sm space-y-1">
                   {tourPackage.inclusion.map((item, idx) => (
                     <li key={idx}>{item}</li>
                   ))}
@@ -112,8 +112,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             {
               tourPackage.exclusion &&
               <div>
-                <div className="font-semibold text-lg mb-1 dark:text-gray-100">Exclusions</div>
-                <ul className="list-disc pl-5 text-gray-700 dark:text-gray-300 text-sm space-y-1">
+                <div className="font-semibold text-lg mb-1">Exclusions</div>
+                <ul className="list-disc pl-5 text-gray-700 text-sm space-y-1">
                   {tourPackage.exclusion.map((item, idx) => (
                     <li key={idx}>{item}</li>
                   ))}
@@ -123,8 +123,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             {
               tourPackage.itinerary &&
               <div>
-                <div className="font-semibold text-lg mb-1 dark:text-gray-100">Itinerary</div>
-                <div className="text-gray-700 dark:text-gray-300 text-sm">
+                <div className="font-semibold text-lg mb-1">Itinerary</div>
+                <div className="text-gray-700 text-sm">
                   {tourPackage.itinerary}
                 </div>
               </div>

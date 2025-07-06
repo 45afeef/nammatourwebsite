@@ -185,10 +185,10 @@ const BookingForm = () => {
 
     return (
         <div className="sticky top-28">
-            <form className="bg-gray-100 dark:bg-gray-800 p-4 rounded shadow-xl flex flex-col gap-4 max-w-md" onSubmit={handleSubmit}>
+            <form className="bg-gray-100 p-4 rounded shadow-xl flex flex-col gap-4 max-w-md" onSubmit={handleSubmit}>
                 <div>
                     <label className="block font-semibold mb-1">Your Name</label>
-                    <input name="name" type="text" value={form.name || ''} onChange={handleChange} required className="w-full border rounded p-2 dark:bg-gray-900 dark:text-gray-100 dark:border-gray-700" placeholder="Booking Person Name" />
+                    <input name="name" type="text" value={form.name || ''} onChange={handleChange} required className="w-full border rounded p-2" placeholder="Booking Person Name" />
                 </div>
                 <div>
                     <label className="block font-semibold mb-1">Package Type</label>
@@ -199,7 +199,7 @@ const BookingForm = () => {
                                 className={`cursor-pointer px-2 py-2 rounded-sm  border transition-colors text-xs
                                     ${form.packageType === type
                                         ? "bg-blue-500 text-white border-blue-500 font-semibold"
-                                        : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-300 dark:border-gray-600 hover:bg-blue-100 dark:hover:bg-blue-800"}
+                                        : "bg-gray-100 text-gray-700 border-gray-300 hover:bg-blue-100"}
                                 `}
                                 style={{ userSelect: "none" }}
                             >
@@ -228,7 +228,7 @@ const BookingForm = () => {
                             value={form.startDate}
                             min={new Date().toISOString().slice(0, 10)}
                             onChange={handleChange}
-                            className="w-full border rounded p-2 dark:bg-gray-900 dark:text-gray-100 dark:border-gray-700"
+                            className="w-full border rounded p-2"
                         />
                     </div>
                     <div className="flex-1">
@@ -243,7 +243,7 @@ const BookingForm = () => {
                             onChange={handleChange}
                             disabled={!form.startDate}
                             min={form.startDate || undefined}
-                            className="w-full border rounded p-2 dark:bg-gray-900 dark:text-gray-100 dark:border-gray-700"
+                            className="w-full border rounded p-2"
                         />
                     </div>
                 </div>
@@ -257,7 +257,7 @@ const BookingForm = () => {
                                 className={`cursor-pointer px-4 py-2 rounded-sm border transition-colors text-xs
                                     ${duration === key
                                         ? "bg-blue-500 text-white border-blue-500 font-semibold"
-                                        : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 border-gray-300 dark:border-gray-600 hover:bg-blue-100 dark:hover:bg-blue-800"}
+                                        : "bg-gray-100 text-gray-700 border-gray-300 hover:bg-blue-100"}
                                 `}
                                 style={{ userSelect: "none" }}
                             >
@@ -298,17 +298,17 @@ const BookingForm = () => {
                 <div className="flex gap-4">
                     <div className="flex-1">
                         <label className="block font-semibold mb-1">Adults</label>
-                        <input name="adults" type="number" min={1} max={14} value={form.adults} onChange={handleChange} className="w-full border rounded p-2 dark:bg-gray-900 dark:text-gray-100 dark:border-gray-700" />
+                        <input name="adults" type="number" min={1} max={14} value={form.adults} onChange={handleChange} className="w-full border rounded p-2" />
                     </div>
                     <div className="flex-1">
                         <label className="block font-semibold mb-1">Kids (Below 9)</label>
-                        <input name="kids" type="number" min={0} max={10} value={form.kids} onChange={handleChange} className="w-full border rounded p-2 dark:bg-gray-900 dark:text-gray-100 dark:border-gray-700" />
+                        <input name="kids" type="number" min={0} max={10} value={form.kids} onChange={handleChange} className="w-full border rounded p-2" />
                     </div>
                 </div>
-                <div className="text-2xl font-bold text-green-700 dark:text-green-400 mb-2">₹2,500 <span className="text-base text-gray-400 dark:text-gray-500 line-through ml-2">₹3,500</span></div>
+                <div className="text-2xl font-bold text-green-700 mb-2">₹2,500 <span className="text-base text-gray-400 line-through ml-2">₹3,500</span></div>
                 <button
                     type="submit"
-                    className="bg-green-600 dark:bg-green-700 text-white font-semibold py-2 rounded text-center hover:bg-green-700 dark:hover:bg-green-800 transition mt-2"
+                    className="bg-green-600 text-white font-semibold py-2 rounded text-center hover:bg-green-700 transition mt-2"
                     disabled={submitting}
                 >
                     {submitting ? "Processing..." : "Check Availability & Book on WhatsApp"}

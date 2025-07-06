@@ -70,45 +70,45 @@ export default function CabsPage() {
     };
 
     return (
-        <main className="pt-40 min-h-screen bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 py-10 px-4 flex flex-col items-center">
-            <div className="max-w-2xl w-full bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8">
-                <h1 className="text-3xl font-bold mb-2 text-center text-gray-900 dark:text-white">Book Your Cab</h1>
-                <p className="mb-6 text-center text-gray-600 dark:text-gray-300">Choose your cab, fill in your details, and get a custom quote instantly on WhatsApp!</p>
+        <main className="pt-40 min-h-screen bg-gradient-to-b from-white to-gray-100 py-10 px-4 flex flex-col items-center">
+            <div className="max-w-2xl w-full bg-white rounded-2xl shadow-xl p-8">
+                <h1 className="text-3xl font-bold mb-2 text-center text-gray-900">Book Your Cab</h1>
+                <p className="mb-6 text-center text-gray-600">Choose your cab, fill in your details, and get a custom quote instantly on WhatsApp!</p>
                 <div className="flex justify-center gap-4 mb-8">
                     {CAB_OPTIONS.map((option) => (
                         <button
                             key={option.value}
                             type="button"
-                            className={`group flex flex-col items-center border-2 rounded-xl p-3 w-32 transition-all duration-500 focus:outline-none ${cab.value === option.value ? 'border-green-500 bg-green-50 dark:bg-green-900' : 'border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800'}`}
+                            className={`group flex flex-col items-center border-2 rounded-xl p-3 w-32 transition-all duration-500 focus:outline-none ${cab.value === option.value ? 'border-green-500 bg-green-50' : 'border-gray-200 bg-gray-50'}`}
                             onClick={() => handleCabChange(option)}
                         >
-                            <div className="w-16 h-16 mb-2 relative flex items-center justify-center text-black dark:text-white">
+                            <div className="w-16 h-16 mb-2 relative flex items-center justify-center text-black">
                                 <option.Icon />
                             </div>
-                            <span className="font-semibold text-gray-800 dark:text-gray-100">{option.label}</span>
-                            <span className="text-xs text-gray-500 dark:text-gray-400">{option.desc}</span>
+                            <span className="font-semibold text-gray-800">{option.label}</span>
+                            <span className="text-xs text-gray-500">{option.desc}</span>
                         </button>
                     ))}
                 </div>
                 <form className="space-y-4" onSubmit={handleSubmit} noValidate>
                     <div className="flex flex-col md:flex-row gap-4">
                         <div className="flex-1">
-                            <label className="block text-gray-700 dark:text-gray-200 mb-1">Pickup Point</label>
-                            <input type="text" className={`w-full rounded-lg border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white p-2 ${errors.pickup ? 'border-red-500' : ''}`} value={pickup} onChange={e => setPickup(e.target.value)} placeholder="Enter pickup location" required />
+                            <label className="block text-gray-700 mb-1">Pickup Point</label>
+                            <input type="text" className={`w-full rounded-lg border-gray-300 bg-gray-50 text-gray-900 p-2 ${errors.pickup ? 'border-red-500' : ''}`} value={pickup} onChange={e => setPickup(e.target.value)} placeholder="Enter pickup location" required />
                             {errors.pickup && <p className="text-xs text-red-500 mt-1">{errors.pickup}</p>}
                         </div>
                         <div className="flex-1">
-                            <label className="block text-gray-700 dark:text-gray-200 mb-1">Dropping Place</label>
-                            <input type="text" className={`w-full rounded-lg border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white p-2 ${errors.drop ? 'border-red-500' : ''}`} value={drop} onChange={e => setDrop(e.target.value)} placeholder="Enter drop location" required />
+                            <label className="block text-gray-700 mb-1">Dropping Place</label>
+                            <input type="text" className={`w-full rounded-lg border-gray-300 bg-gray-50 text-gray-900 p-2 ${errors.drop ? 'border-red-500' : ''}`} value={drop} onChange={e => setDrop(e.target.value)} placeholder="Enter drop location" required />
                             {errors.drop && <p className="text-xs text-red-500 mt-1">{errors.drop}</p>}
                         </div>
                     </div>
                     <div className="flex flex-col md:flex-row gap-4">
                         <div className="flex-1">
-                            <label className="block text-gray-700 dark:text-gray-200 mb-1">Duration</label>
+                            <label className="block text-gray-700 mb-1">Duration</label>
                             <div className="flex gap-2">
-                                <input type="number" min={1} className={`flex-1 w-20 rounded-lg border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white p-2 ${errors.duration ? 'border-red-500' : ''}`} value={duration} onChange={e => setDuration(Number(e.target.value))} required />
-                                <select className="flex-1 rounded-lg border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white p-2" value={durationType} onChange={e => setDurationType(e.target.value)}>
+                                <input type="number" min={1} className={`flex-1 w-20 rounded-lg border-gray-300 bg-gray-50 text-gray-900 p-2 ${errors.duration ? 'border-red-500' : ''}`} value={duration} onChange={e => setDuration(Number(e.target.value))} required />
+                                <select className="flex-1 rounded-lg border-gray-300 bg-gray-50 text-gray-900 p-2" value={durationType} onChange={e => setDurationType(e.target.value)}>
                                     <option value="day">Day(s)</option>
                                     <option value="night">Night(s)</option>
                                 </select>
@@ -116,18 +116,18 @@ export default function CabsPage() {
                             {errors.duration && <p className="text-xs text-red-500 mt-1">{errors.duration}</p>}
                         </div>
                         <div className="flex-1">
-                            <label className="block text-gray-700 dark:text-gray-200 mb-1">Seat Capacity</label>
+                            <label className="block text-gray-700 mb-1">Seat Capacity</label>
                             <div className="relative">
                                 <input
                                     type="number"
                                     min={1}
                                     max={cab.seats}
-                                    className={`w-full rounded-lg border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white p-2 pr-16 ${errors.seats ? 'border-red-500' : ''}`}
+                                    className={`w-full rounded-lg border-gray-300 bg-gray-50 text-gray-900 p-2 pr-16 ${errors.seats ? 'border-red-500' : ''}`}
                                     value={seats}
                                     onChange={e => setSeats(Number(e.target.value))}
                                     required
                                 />
-                                <span className="absolute right-2 bottom-2 text-xs text-gray-500 dark:text-gray-400">
+                                <span className="absolute right-2 bottom-2 text-xs text-gray-500">
                                     Max: {cab.seats}
                                 </span>
                             </div>
@@ -136,13 +136,13 @@ export default function CabsPage() {
                     </div>
                     <div className="flex flex-col md:flex-row gap-4">
                         <div className="flex-1">
-                            <label className="block text-gray-700 dark:text-gray-200 mb-1">Your Name</label>
-                            <input type="text" className={`w-full rounded-lg border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white p-2 ${errors.name ? 'border-red-500' : ''}`} value={name} onChange={e => setName(e.target.value)} placeholder="Enter your name" required />
+                            <label className="block text-gray-700 mb-1">Your Name</label>
+                            <input type="text" className={`w-full rounded-lg border-gray-300 bg-gray-50 text-gray-900 p-2 ${errors.name ? 'border-red-500' : ''}`} value={name} onChange={e => setName(e.target.value)} placeholder="Enter your name" required />
                             {errors.name && <p className="text-xs text-red-500 mt-1">{errors.name}</p>}
                         </div>
                         <div className="flex-1">
-                            <label className="block text-gray-700 dark:text-gray-200 mb-1">Phone Number</label>
-                            <input type="tel" className={`w-full rounded-lg border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white p-2 ${errors.phone ? 'border-red-500' : ''}`} value={phone} onChange={e => setPhone(e.target.value)} placeholder="Enter your phone" required />
+                            <label className="block text-gray-700 mb-1">Phone Number</label>
+                            <input type="tel" className={`w-full rounded-lg border-gray-300 bg-gray-50 text-gray-900 p-2 ${errors.phone ? 'border-red-500' : ''}`} value={phone} onChange={e => setPhone(e.target.value)} placeholder="Enter your phone" required />
                             {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone}</p>}
                         </div>
                     </div>

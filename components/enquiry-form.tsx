@@ -71,7 +71,7 @@ export default function EnquiryForm() {
                             />
                             <button
                                 type="submit"
-                                className="w-full bg-foreground text-background py-4 rounded-lg text-xl hover:bg-primary-dark transition"
+                                className="w-full bg-foreground text-background py-4 rounded-lg text-xl hover:bg-primary transition"
                             >
                                 Send Enquiry
                             </button>
