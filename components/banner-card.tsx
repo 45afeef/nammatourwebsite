@@ -10,7 +10,7 @@ export default function BannerCard(
             }}
             className={`
                 relative flex flex-col 
-                md:mt-44 mt-32 mx-auto 
+                mx-auto my-4
                 p-8 
                 w-full min-h-56 
                 rounded-lg shadow-lg 

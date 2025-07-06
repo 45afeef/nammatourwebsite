@@ -30,14 +30,14 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         title={tourPackage.title}
         subtitle="Ready for a break? Book your escape now—your adventure is waiting."
       />
-      <section className="container mx-auto px-4 py-6 flex flex-col md:flex-row gap-8 mb-8">
+      <section className="container mx-auto px-2 py-2 flex flex-col md:flex-row gap-4 mb-4">
         <div className="flex-2">
-          <div className="sticky top-28 w-full bg-yellow-100 text-yellow-900 text-center py-2 font-semibold">
+          <div className="sticky top-28 w-full bg-yellow-100 text-yellow-900 text-center py-1 font-semibold">
             Book now, relax later. Secure your spot—no stress, no FOMO.
           </div>
           {/* Title & Subtitle */}
-          <div className="mb-4">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
+          <div className="mb-2">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-1">
               {tourPackage.title}
             </h1>
             {tourPackage.subTitle && (
@@ -45,9 +45,9 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             )}
           </div>
           {/* Package Info */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mb-2">
             {tourPackage.packageInfo?.map((point, idx) => (
-              <div key={idx} className="flex items-center gap-3 bg-gray-50 p-4 rounded shadow">
+              <div key={idx} className="flex items-center gap-2 bg-gray-50 p-2 rounded shadow">
                 {point.icon && <span className="text-2xl">{point.icon}</span>}
                 <div>
                   <div className="font-semibold">{point.title}</div>
@@ -57,9 +57,9 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             ))}
           </div>
           {/* Gallery */}
-          <div className="mb-8">
-            <div className="font-semibold mb-2">Gallery</div>
-            <div className="flex gap-2 overflow-x-auto">
+          <div className="mb-2">
+            <div className="font-semibold mb-1">Gallery</div>
+            <div className="flex gap-1 overflow-x-auto">
               {tourPackage.images?.map((img, idx) => (
                 <img
                   key={idx}
@@ -72,9 +72,9 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           </div>
 
           {/* Key Points */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-2">
             {tourPackage.keyPoints?.map((point, idx) => (
-              <div key={idx} className="flex items-center gap-3 bg-gray-50 p-4 rounded shadow">
+              <div key={idx} className="flex items-center gap-2 bg-gray-50 p-2 rounded shadow">
                 {point.icon && <span className="text-3xl">{point.icon}</span>}
                 <div>
                   <div className="font-semibold">{point.title}</div>

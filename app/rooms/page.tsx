@@ -154,12 +154,12 @@ export default function RoomsPage() {
     ];
 
     return (
-        <div className="container mx-auto py-8 md:max-w-11/12">
+        <div className="container mx-auto px-2 py-2 max-w-11/12">
             {/* Banner */}
             <BannerCard
-                imageUrl="/images/abstract-bg.jpg"
-                title="Handpicked Curated List of Best Vibey Stay"
-                subtitle="Ever updating, simple and minimal stays that match your vibe"
+                imageUrl="/images/wayanad-bg.jpg"
+                title="Rooms in Wayanad"
+                subtitle="Find your perfect stay"
             />
 
             {/* Rooms Gallery */}

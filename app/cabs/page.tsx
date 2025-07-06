@@ -70,11 +70,11 @@ export default function CabsPage() {
     };
 
     return (
-        <main className="pt-40 min-h-screen bg-gradient-to-b from-white to-gray-100 py-10 px-4 flex flex-col items-center">
-            <div className="max-w-2xl w-full bg-white rounded-2xl shadow-xl p-8">
+        <main className="min-h-screen bg-gradient-to-b from-white to-gray-100 py-4 px-2 flex flex-col items-center">
+            <div className="max-w-2xl w-full bg-white rounded-2xl shadow-xl p-4">
                 <h1 className="text-3xl font-bold mb-2 text-center text-gray-900">Book Your Cab</h1>
-                <p className="mb-6 text-center text-gray-600">Choose your cab, fill in your details, and get a custom quote instantly on WhatsApp!</p>
-                <div className="flex justify-center gap-4 mb-8">
+                <p className="mb-2 text-center text-gray-600">Choose your cab, fill in your details, and get a custom quote instantly on WhatsApp!</p>
+                <div className="flex justify-center gap-2 mb-4">
                     {CAB_OPTIONS.map((option) => (
                         <button
                             key={option.value}
@@ -148,7 +148,7 @@ export default function CabsPage() {
                     </div>
                     <button
                         type="submit"
-                        className="block w-full mt-6 bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl text-lg text-center shadow-lg transition-all duration-500"
+                        className="block w-full mt-4 bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl text-lg text-center shadow-lg transition-all duration-500"
                     >
                         🚕 Get Custom Quote on WhatsApp
                     </button>
