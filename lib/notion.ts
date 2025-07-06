@@ -22,7 +22,7 @@ function pageToBlogPost(page: any): BlogPost {
   };
 }
 
-export async function getAllPosts(): Promise<BlogPost[]> {
+export async function getAllBlogPosts(): Promise<BlogPost[]> {
   const response = await notion.databases.query({
     database_id: databaseId!,
     filter: { property: 'Published', checkbox: { equals: true } },
@@ -31,7 +31,7 @@ export async function getAllPosts(): Promise<BlogPost[]> {
   return response.results.map(pageToBlogPost);
 }
 
-export async function getPostById(id: string): Promise<BlogPost | null> {
+export async function getBlogPostById(id: string): Promise<BlogPost | null> {
   try {
     const page: any = await notion.pages.retrieve({ page_id: id });
     if (
@@ -46,8 +46,23 @@ export async function getPostById(id: string): Promise<BlogPost | null> {
   }
 }
 
-export async function getPostBlocks(postId: string) {
-  const blocks = await notion.blocks.children.list({ block_id: postId });
+export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
+  const response = await notion.databases.query({
+    database_id: databaseId!,
+    filter: {
+      and: [
+        { property: 'Slug', rich_text: { equals: slug } },
+        { property: 'Published', checkbox: { equals: true } },
+      ],
+    },
+    page_size: 1,
+  });
+  if (response.results.length === 0) return null;
+  return pageToBlogPost(response.results[0]);
+}
+
+export async function getBlogPostBlocks(blogPostId: string) {
+  const blocks = await notion.blocks.children.list({ block_id: blogPostId });
   return blocks.results;
 }
 
