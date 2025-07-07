@@ -5,7 +5,7 @@ import { ContentfulAdapter } from './adapters/contentful-adapter';
 
 
 // --- Configuration ---
-const API_BASE_URL: string = process.env.NEXT_PUBLIC_API_BASE_URL!;
+const API_BASE_URL: string = process.env.NEXT_PUBLIC_CONTENTFUL_API_BASE_URL!;
 
 
 // --- Instantiate Adapters (Low-level Details) ---
