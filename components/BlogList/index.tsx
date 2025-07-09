@@ -1,7 +1,7 @@
+import { BlogPost } from '@/lib/data-fetching/models/blog_post';
 import styles from './bloglist.module.css';
 
 import Link from "next/link";
-import { BlogPost } from "@/types/notion";
 
 interface BlogListProps {
     blogPosts: BlogPost[];

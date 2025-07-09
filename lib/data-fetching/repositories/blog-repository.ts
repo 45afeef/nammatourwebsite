@@ -21,7 +21,7 @@ export class BlogRepository {
         // This is because BlogPost is tightly coupled with Notion's data structure.
         // If you want to support other data sources, you can remove this check. and create new UI Components
         // that can handle the different data structures.
-        if (dataSource.constructor.name !== 'NotionAdapter') {
+        if (!(dataSource instanceof NotionAdapter)) {
             throw new Error('BlogRepository now only supports NotionAdapter as the data source. Because BlogPost is tightly coupled with Notion\'s data structure inside UI component.');
         }
         this.dataSource = dataSource as NotionAdapter; // Cast to NotionAdapter
