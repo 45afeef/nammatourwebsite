@@ -1,4 +1,3 @@
-import BannerCard from "@/components/banner-card";
 import ImageCard from "@/components/image-card";
 import ProductCard from "@/components/product-card";
 import Link from "next/link";
@@ -16,22 +15,16 @@ export async function generateStaticParams() {
 export default async function Page({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }) {
-  const { slug } = await params;
+  const { slug } = params;
   const repo = new PackageRepository();
   const packageCollection = await repo.getCollectionBySlug(slug);
 
   if (!packageCollection) return notFound();
 
   return (
-    <div className="container max-w-11/12 mx-auto my-16">
-      <BannerCard
-        imageUrl="/images/bg-1.webp"
-        title={packageCollection.name}
-        subtitle="Explore our exclusive tour services"
-      />
-
+    <>
       {packageCollection.subGroups && packageCollection.subGroups.length > 0 && (
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-16">
           {packageCollection.subGroups.map((group, index) => (
@@ -70,6 +63,6 @@ export default async function Page({
           ))}
         </ul>
       )}
-    </div>
+    </>
   );
 }
