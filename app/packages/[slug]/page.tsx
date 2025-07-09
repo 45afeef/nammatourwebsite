@@ -15,9 +15,9 @@ export async function generateStaticParams() {
 export default async function Page({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const { slug } = params;
+  const { slug } = await params;
   const repo = new PackageRepository();
   const packageCollection = await repo.getCollectionBySlug(slug);
 
