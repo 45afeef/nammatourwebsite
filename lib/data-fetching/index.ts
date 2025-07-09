@@ -1,29 +1,42 @@
-import { TourPackageRepository } from './repositories/tour-package-repository';
 import { DataService } from './services/data-service';
-import { TourPackage, TourPackageResponse } from './models/tour-package';
+
 import { ContentfulAdapter } from './adapters/contentful-adapter';
+import { NotionAdapter } from './adapters/notion-adapter';
+
+import { BlogRepository } from './repositories/blog-repository';
+import { TourPackageRepository } from './repositories/tour-package-repository';
+
+import { TourPackageResponse } from './models/tour-package';
 
 
 // --- Configuration ---
-const API_BASE_URL: string = process.env.NEXT_PUBLIC_CONTENTFUL_API_BASE_URL!;
-
+const NOTION_API_KEY = process.env.NOTION_API_KEY!;
+const NOTION_DATABASE_ID = process.env.NOTION_DATABASE_ID!;
+const CONTENTFUL_PARAMS = {
+    space: process.env.CONTENTFUL_SPACE_ID!,
+    environment: process.env.CONTENTFUL_ENVIRONMENT!,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!,
+};
 
 // --- Instantiate Adapters (Low-level Details) ---
-// Using ApiAdapter for User data
-// const userApiAdapter = new ApiAdapter<User>(API_BASE_URL, 'users');
-// Using CmsAdapter for TourPakcage data (as tourPackages  are managed by CMS)
-// const tourPackageCmsAdapter = new CmsAdapter<TourPackage>(CMS_API_URL, 'packagePage');
 // Using ContentfulAdapter for TourPakcage data as packages are managed by Contentful
-const tourPackageContentfulAdapter = new ContentfulAdapter<TourPackageResponse>('packagePage');
+const tourPackageContentfulAdapter = new ContentfulAdapter<TourPackageResponse>(CONTENTFUL_PARAMS, 'packagePage',);
+// Using NotionAdapter for Blog data as blogs are managed by Notion
+const blogsNotionAdapter = new NotionAdapter(NOTION_API_KEY, NOTION_DATABASE_ID);
 
 // --- Instantiate Repositories (if using them) ---
-export const tourPackageRepository = new TourPackageRepository(tourPackageContentfulAdapter);
-// export const productRepository = new ProductRepository(productCmsAdapter); // Assuming you create this
+const tourPackageRepository = new TourPackageRepository(tourPackageContentfulAdapter);
+const blogRepository = new BlogRepository(blogsNotionAdapter);
+
 
 
 // --- Instantiate High-level Data Service (if using it) ---
 // Injecting repositories into the DataService
-export const dataService = new DataService(tourPackageRepository /*, productRepository */);
+export const dataService = new DataService(
+    tourPackageRepository,
+    blogRepository,
+);
+
 
 // You can also export individual repositories or adapters directly for simpler use cases
 // export { tourPackageCmsAdapter, productCmsAdapter };

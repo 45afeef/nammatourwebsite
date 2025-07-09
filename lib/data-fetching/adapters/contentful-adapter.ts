@@ -1,32 +1,28 @@
 import { IDataSource } from '../interfaces/i-data-source';
 import * as contentful from 'contentful'
 
-const client = contentful.createClient({
-    space: process.env.CONTENTFUL_SPACE_ID!,
-    environment: process.env.CONTENTFUL_ENVIRONMENT!,
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!,
-})
-
-
 /**
  * A concrete implementation of IDataSource for fetching data from a REST API.
  * This adapter is responsible for API-specific logic (e.g., fetch, headers, base URL).
  */
 export class ContentfulAdapter<T, K = string> implements IDataSource<T, K> {
     private contentType: string;
+    private client: contentful.ContentfulClientApi<undefined>;
 
     /**
      * Creates an instance of ApiAdapter.
      * @param contentType - The specific endpoint for the resource.
+     * @param client - The Contentful client instance.
      */
-    constructor(contentType: string) {
+    constructor(params: contentful.CreateClientParams, contentType: string) {
         this.contentType = contentType;
+        this.client = contentful.createClient(params);
     }
 
 
     async fetchOne(id: K): Promise<T | null> {
         try {
-            const response = await client.getEntry(id as string);
+            const response = await this.client.getEntry(id as string);
             if (!response) {
                 return null;
             }
@@ -39,7 +35,7 @@ export class ContentfulAdapter<T, K = string> implements IDataSource<T, K> {
 
     async fetchAll(params?: Record<string, any>): Promise<T[]> {
         try {
-            const response = await client.getEntries({
+            const response = await this.client.getEntries({
                 content_type: this.contentType,
                 ...params,
             });

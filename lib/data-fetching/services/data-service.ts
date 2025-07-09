@@ -1,4 +1,5 @@
 import { TourPackageRepository } from '../repositories/tour-package-repository';
+import { BlogRepository } from '../repositories/blog-repository';
 
 // Import other repositories or data sources as needed
 
@@ -8,12 +9,15 @@ import { TourPackageRepository } from '../repositories/tour-package-repository';
  * It depends on repositories, which in turn depend on data sources.
  */
 export class DataService {
-    public tourPackages: TourPackageRepository;
-    // public products: ProductRepository; // Example for other entities
+    public tourPackagesRepo: TourPackageRepository;
+    public blogRepo: BlogRepository;
 
-    constructor(tourPackageRepo: TourPackageRepository /*, productRepo: ProductRepository */) {
-        this.tourPackages = tourPackageRepo;
-        // this.products = productRepo;
+    constructor(
+        tourPackageRepo: TourPackageRepository,
+        blogRepository: BlogRepository,
+    ) {
+        this.tourPackagesRepo = tourPackageRepo;
+        this.blogRepo = blogRepository;
     }
 
     // You can add methods here that combine data from multiple repositories

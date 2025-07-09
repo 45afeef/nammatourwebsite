@@ -62,7 +62,6 @@ function extractPackageInfo(packageInfo: string[]): any[] {
   return parsedPackageInformations;
 }
 
-
 function extractImageUrl(imageJson: any): string {
   return imageJson.fields.file.url || '';
 }

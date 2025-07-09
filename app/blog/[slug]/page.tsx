@@ -1,15 +1,15 @@
-import { getAllBlogPosts, getBlogPostBySlug, getBlockTree } from "@/lib/notion";
 import NotionRenderer from "@/components/NotionRenderer";
 import { Metadata } from "next";
+import { dataService } from "@/lib/data-fetching";
 
 export async function generateStaticParams() {
-    const blogPosts = await getAllBlogPosts();
+    const blogPosts = await dataService.blogRepo.getAllBlogs();
     return blogPosts.map((blogPost: any) => ({ slug: blogPost.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const { slug } = await params;
-    const blogPost = await getBlogPostBySlug(slug);
+    const [blogPost, blocks ] = await dataService.blogRepo.getBlogBySlug(slug);
     return {
         title: blogPost?.title || "Blog Post",
         description: blogPost?.excerpt || "Read this blog post on NammaTour.",
@@ -20,10 +20,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     const { slug } = await params;
     if (!slug) return <div>Not found</div>;
 
-    const blogPost = await getBlogPostBySlug(slug);
+    const [blogPost, blocks] = await dataService.blogRepo.getBlogBySlug(slug);
+
     if (!blogPost) return <div>Not found</div>;
     // Use getBlockTree for full SSG hydration
-    const blocks = await getBlockTree(blogPost.id);
     return (
         <article className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden pb-10 mt-10">
             {blogPost.cover && (
