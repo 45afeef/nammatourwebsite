@@ -1,20 +1,17 @@
-'use client';
-
 import BannerCard from "@/components/banner-card";
-import React, { useEffect, useState } from "react";
 
-export default function RoomPage({ params }: { params: Promise<{ slug: string }> }) {
-  const [slug, setSlug] = useState("");
-  useEffect(() => {
-    (async () => {
-      const p = await params;
-      setSlug(p.slug);
-    })();
-  }, [params]);
+export async function generateStaticParams() {
+  // Example static room slugs, replace with dynamic fetch if you have a data source
+  return [
+    { slug: "deluxe-room" },
+    { slug: "suite-room" },
+    { slug: "family-room" },
+    { slug: "standard-room" },
+  ];
+}
 
-  // Example: You can fetch room details based on slug here
-  // For now, just use the slug in the title and image
-
+export default async function RoomPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   return (
     <main className="bg-white min-h-screen max-w-4xl mx-auto">
       <BannerCard
@@ -32,7 +29,6 @@ export default function RoomPage({ params }: { params: Promise<{ slug: string }>
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-2">Room Overview</h2>
           <p className="text-gray-700 text-base">
-            {/* Replace with dynamic room description */}
             Experience comfort and tranquility in our {slug.replace(/-/g, ' ')}. Enjoy modern amenities, beautiful views, and easy access to all attractions in Wayanad.
           </p>
         </div>
@@ -52,17 +48,13 @@ export default function RoomPage({ params }: { params: Promise<{ slug: string }>
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-2">Book This Room</h2>
           <a
-            href={`https://wa.me/918891998005?text=Hi%2C%20I%20am%20interested%20in%20the%20room%20${encodeURIComponent(slug.replace(/-/g, ' '))}.%20Please%20share%20availability%20and%20details.%20Room%20Page:%20${encodeURIComponent(window?.location?.href || '')}`}
+            href={`https://wa.me/918891998005?text=Hi%2C%20I%20am%20interested%20in%20the%20room%20${encodeURIComponent(slug.replace(/-/g, ' '))}.%20Please%20share%20availability%20and%20details.`}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-green-600 text-white font-semibold py-2 px-6 rounded hover:bg-green-700 transition"
           >
             Enquire &amp; Book on WhatsApp
           </a>
-          <div className="mt-2 text-xs text-gray-500 break-all">
-            <span>Room Page: </span>
-            <span>{typeof window !== 'undefined' ? window.location.href : ''}</span>
-          </div>
         </div>
       </section>
     </main>

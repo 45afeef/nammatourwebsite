@@ -5,6 +5,14 @@ import Link from "next/link";
 import { PackageRepository } from "@/lib/data-fetching/repositories/package-repository";
 import { notFound } from "next/navigation";
 
+export async function generateStaticParams() {
+  const repo = new PackageRepository();
+  const collections = await repo.getAllCollections();
+  return collections.map((group) => ({
+    slug: group.name.replace(/\s+/g, "-").toLowerCase(),
+  }));
+}
+
 export default async function Page({
   params,
 }: {
