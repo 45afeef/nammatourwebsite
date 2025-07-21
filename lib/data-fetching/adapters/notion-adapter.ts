@@ -79,9 +79,10 @@ export class NotionAdapter implements IDataSource<any, string> {
                     } else if (block.type === 'synced_block') {
                         const syncedChildren = await this.fetchBlockTree(block.id);
                         return { ...block, synced_block: { ...block.synced_block, children: syncedChildren } };
-                        // } else {
-                        //   const children = await this.fetchBlockTree(block.id);
-                        //   return { ...block, children };
+                    } else if (block.type === 'table') {
+                        // Fetch all table_row children and attach as rows
+                        const tableRows = await this.fetchBlockChildren(block.id);
+                        return { ...block, rows: tableRows };
                     }
                 }
                 return block;

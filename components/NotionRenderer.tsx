@@ -167,15 +167,52 @@ export default function NotionRenderer({ blocks }: { blocks: any[] }) {
                         );
                         break;
                     }
-                    case "table":
-                        elements.push(<div key={block.id} className="medium-blog-table" style={{ background: '#fffbe6', color: '#b71c1c', border: '2px dashed #ffd700', padding: '1em', margin: '1.5em 0' }}>
-                            ⚠️ <b>Table block not rendered:</b> This block type is not fully supported yet.
-                        </div>);
+                    case "table": {
+                        // Render Notion table block as HTML table
+                        const table = block.table;
+                        const rows = block.rows || [];
+                        const tableWidth = table?.table_width || 0;
+                        const hasColumnHeader = table?.has_column_header;
+                        const hasRowHeader = table?.has_row_header;
+
+                        elements.push(
+                            <div key={block.id} className="medium-blog-table" style={{ overflowX: 'auto', margin: '2em 0' }}>
+                                <table style={{ width: '100%', borderCollapse: 'collapse', background: '#fff' }}>
+                                    <tbody>
+                                        {rows.map((row: any, rowIdx: number) => {
+                                            const cells = row.table_row?.cells || [];
+                                            return (
+                                                <tr key={row.id}>
+                                                    {cells.map((cell: any, colIdx: number) => {
+                                                        // Determine if this cell is a header cell
+                                                        const isHeader = (hasColumnHeader && rowIdx === 0) || (hasRowHeader && colIdx === 0);
+                                                        const Tag = isHeader ? 'th' : 'td';
+                                                        return (
+                                                            <Tag
+                                                                key={colIdx}
+                                                                style={{
+                                                                    border: '1px solid #eee',
+                                                                    padding: '0.7em 1em',
+                                                                    background: isHeader ? '#fffbe6' : '#fff',
+                                                                    fontWeight: isHeader ? 700 : 400,
+                                                                    textAlign: 'left',
+                                                                }}
+                                                            >
+                                                                {renderRichText(cell)}
+                                                            </Tag>
+                                                        );
+                                                    })}
+                                                </tr>
+                                            );
+                                        })}
+                                    </tbody>
+                                </table>
+                            </div>
+                        );
                         break;
+                    }
                     case "table_row":
-                        elements.push(<div key={block.id} className="medium-blog-table-row" style={{ background: '#fffbe6', color: '#b71c1c', border: '2px dashed #ffd700', padding: '0.5em', margin: '0.5em 0' }}>
-                            ⚠️ <b>Table row not rendered:</b> This block type is not fully supported yet.
-                        </div>);
+                        // Table rows are handled inside table block rendering
                         break;
                     case "breadcrumb":
                         elements.push(<div key={block.id} className="medium-blog-breadcrumb" style={{ background: '#fffbe6', color: '#b71c1c', border: '2px dashed #ffd700', padding: '0.5em', margin: '0.5em 0' }}>
