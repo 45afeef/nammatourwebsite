@@ -2,6 +2,15 @@ import NotionRenderer from "@/components/NotionRenderer";
 import { Metadata } from "next";
 import { dataService } from "@/lib/data-fetching";
 
+// Next.js will invalidate the cache when a
+// request comes in, at most once every week.
+export const revalidate = 60 * 60 * 24 * 7; // 1 week
+
+// We'll prerender only the params from `generateStaticParams` at build time.
+// If a request comes in for a path that hasn't been generated,
+// Next.js will server-render the page on-demand.
+export const dynamicParams = true // or false, to 404 on unknown paths
+
 export async function generateStaticParams() {
     const blogPosts = await dataService.blogRepo.getAllBlogs();
     return blogPosts.map((blogPost: any) => ({ slug: blogPost.slug }));
@@ -9,7 +18,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const { slug } = await params;
-    const [blogPost, blocks ] = await dataService.blogRepo.getBlogBySlug(slug);
+    const [blogPost, blocks] = await dataService.blogRepo.getBlogBySlug(slug);
     return {
         title: blogPost?.title || "Blog Post",
         description: blogPost?.excerpt || "Read this blog post on NammaTour.",

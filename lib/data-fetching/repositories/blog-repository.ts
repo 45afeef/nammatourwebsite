@@ -2,6 +2,7 @@ import { assert } from 'console';
 import { IDataSource } from '../interfaces/i-data-source';
 import { BlogPost } from '../models/blog_post';
 import { NotionAdapter } from '../adapters/notion-adapter';
+import { unstable_cache } from 'next/cache';
 
 export class BlogRepository {
 
@@ -31,13 +32,13 @@ export class BlogRepository {
         return this.dataSource.fetchOne(id);
     }
 
-    async getAllBlogs(params?: Record<string, any>): Promise<BlogPost[]> {
+    getAllBlogs = unstable_cache(async (params?: Record<string, any>): Promise<BlogPost[]> => {
         const response = await this.dataSource.fetchAll(params);
         if (!response || response.length === 0) {
             return []; // No blog posts found
         }
         return response.map(this.pageToBlogPost.bind(this)); // Bind 'this' to ensure correct context for pageToBlogPost
-    }
+    }, ['blogs'], { revalidate: 60 * 60 }); // 1 hour
 
     async getBlogBySlug(slug: string): Promise<any | null> {
         // slug is a field so we need to filter the data source by it
