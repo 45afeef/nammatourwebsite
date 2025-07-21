@@ -1,8 +1,11 @@
 import EnquiryForm from "@/components/enquiry-form";
 import PackageList from "@/components/packages";
+import { PackageRepository } from "@/lib/data-fetching/repositories/package-repository";
 import Image from "next/image";
 
-export default function Home() {
+export default async function Home() {
+  const groups = await new PackageRepository().getGroups();
+
   return (
     <main className="min-h-screen bg-background text-foreground">
       {/* Hero Content */}
@@ -71,7 +74,8 @@ export default function Home() {
         </div>
       </section>
       {/* Packages Section */}
-      <div className="mx-auto px-2 max-w-11/12"><PackageList /></div>
+
+      <div className="mx-auto px-2 max-w-11/12"><PackageList groups={groups} /></div>
       {/* Testimonials Section */}
       <section className="py-8">
         <div className="container mx-auto px-2 md:max-w-11/12">
