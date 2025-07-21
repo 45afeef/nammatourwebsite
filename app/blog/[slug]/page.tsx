@@ -4,7 +4,7 @@ import { dataService } from "@/lib/data-fetching";
 
 // Next.js will invalidate the cache when a
 // request comes in, at most once every week.
-export const revalidate = 60 * 60 * 24 * 7; // 1 week
+export const revalidate = 604800; // 1 week
 
 // We'll prerender only the params from `generateStaticParams` at build time.
 // If a request comes in for a path that hasn't been generated,
