@@ -22,7 +22,7 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
         <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
           {slug.replace(/-/g, ' ').toUpperCase()}
         </h1>
-        <p className="text-lg text-gray-600 mb-6">#NammaTour Room | Wayanad</p>
+        <p className="text-lg text-gray-600 mb-6">#Room | Wayanad</p>
         <div className="mb-8">
           <img src={`/images/rooms/${slug}.webp`} alt={slug} className="w-full max-w-2xl rounded shadow mx-auto" />
         </div>

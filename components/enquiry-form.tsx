@@ -22,7 +22,7 @@ export default function EnquiryForm() {
                                 </a>
                                 <a href="mailto:info@namm-tour.com" className="flex items-center text-lg text-primary hover:underline">
                                     <FaEnvelope className="mr-3" size={24} />
-                                    info@nammatour.com
+                                    info@raqlin.com
                                 </a>
 
                             </div>

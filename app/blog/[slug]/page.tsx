@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const [blogPost, blocks] = await dataService.blogRepo.getBlogBySlug(slug);
     return {
         title: blogPost?.title || "Blog Post",
-        description: blogPost?.excerpt || "Read this blog post on NammaTour.",
+        description: blogPost?.excerpt || "Read this blog post on Raqlin.com",
     };
 }
 

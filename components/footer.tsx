@@ -8,7 +8,7 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
                     <div className="flex flex-col items-center">
                         <Link href="/">
-                            <Image src="/logo-white.png" alt="NammaTour Logo" width={200} height={50} />
+                            <Image src="/logo-white.png" alt="Raqlin Logo" width={200} height={50} />
                         </Link>
                         <p className="mt-4 text-gray-300 text-center">
                             Your trusted partner for memorable Wayanad experiences
@@ -41,7 +41,7 @@ export default function Footer() {
                             <li>
                                 <a href="tel:+917558009733" className="hover:text-brand-yellow">Phone: +91 7558009733</a>
                             </li>
-                            <li>Email: info@nammatour.com</li>
+                            <li>Email: info@raqlin.com</li>
                             <li>Address: Wayanad, Kerala, India</li>
                         </ul>
                     </div>
@@ -53,7 +53,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className="border-t border-foreground/30 mt-12 pt-8 text-center text-gray-400">
-                    <p>&copy; {new Date().getFullYear()} NammaTour. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} Raqlin. All rights reserved.</p>
                 </div>
             </div>
         </footer>

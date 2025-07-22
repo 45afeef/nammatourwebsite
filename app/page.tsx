@@ -9,7 +9,7 @@ export default async function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       {/* Hero Content */}
-      <section className="relative h-screen">
+      <section className="relative h-[70vh] md:h-[80vh] ">
         <Image
           src="/hero-image.jpg"
           alt="Wayanad Landscape"
@@ -104,7 +104,7 @@ export default async function Home() {
                   ))}
                 </div>
                 <p className="text-foreground/80">
-                  "Amazing experience! Highly recommend NammaTour for your next trip."
+                  "Amazing experience! Highly recommend Raqlin for your next raqlin."
                 </p>
               </div>
             ))}
@@ -112,10 +112,10 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Why NammaTour Section */}
+      {/* Why Us Section */}
       <section className="py-20">
         <div className="container mx-auto px-4 md:max-w-11/12">
-          <h2 className="text-4xl font-bold text-center mb-16">Why Choose NammaTour?</h2>
+          <h2 className="text-4xl font-bold text-center mb-16">Why Choose Raqlin?</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="text-center">
               <h3 className="text-xl font-bold mb-4">Local Expertise</h3>

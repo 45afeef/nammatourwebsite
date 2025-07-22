@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Namma Tour",
+  title: "Raqlin | Move for a Purpose",
   description: "Budget Friendly Tour Packages For Indian Middle Class ",
 };
 
