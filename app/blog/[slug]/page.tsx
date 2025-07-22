@@ -18,18 +18,19 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const { slug } = await params;
-    const [blogPost, blocks] = await dataService.blogRepo.getBlogBySlug(slug);
+    const [blogPost] = await dataService.blogRepo.getBlogBySlug(slug) ?? [];
     return {
         title: blogPost?.title || "Blog Post",
         description: blogPost?.excerpt || "Read this blog post on Raqlin.com",
+        icons: [{ url: blogPost?.cover ? blogPost.cover : "/favicon.ico" }],
     };
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
     if (!slug) return <div>Not found</div>;
-
-    const [blogPost, blocks] = await dataService.blogRepo.getBlogBySlug(slug);
+    const blogResult = await dataService.blogRepo.getBlogBySlug(slug);
+    const [blogPost, blocks] = blogResult ?? [];
 
     if (!blogPost) return <div>Not found</div>;
     // Use getBlockTree for full SSG hydration
@@ -41,13 +42,26 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 </div>
             )}
             <h1 className="text-3xl md:text-4xl font-bold mt-8 mb-2 px-8 text-gray-900 leading-tight">{blogPost.title}</h1>
-            <p className="text-gray-500 text-base px-8 mb-6">
+            <p className="text-gray-700 text-base px-8 mb-6">
+                {blogPost.excerpt || "No excerpt available for this blog post."}
+            </p>
+
+            <p className="flex justify-between text-gray-500 text-base px-8 mb-6">
                 {new Date(blogPost.date).toLocaleDateString('en-GB', {
                     day: '2-digit',
                     month: 'short',
                     year: '2-digit',
                 })}
+                <span className="text-gray-400">by {blogPost.author}</span>
+                <div className="px-8 mb-6">
+                    {blogPost.tags.map((tag) => (
+                        <span key={tag} className="bg-gray-300 rounded-lg p-1 m-1">{tag}</span>
+                    ))}
+                </div>
+                <span className="text-gray-400">{blogPost.readingTime}</span>
             </p>
+
+
             <NotionRenderer blocks={blocks} />
         </article>
     );

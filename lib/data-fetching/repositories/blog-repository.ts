@@ -40,7 +40,7 @@ export class BlogRepository {
         return response.map(this.pageToBlogPost.bind(this)); // Bind 'this' to ensure correct context for pageToBlogPost
     }, ['blogs'], { revalidate: 60 * 60 }); // 1 hour
 
-    async getBlogBySlug(slug: string): Promise<any | null> {
+    async getBlogBySlug(slug: string): Promise<[BlogPost, any] | null> {
         // slug is a field so we need to filter the data source by it
         const response = await this.dataSource.fetchBySlug(slug);
         if (!response || response.length === 0) {
