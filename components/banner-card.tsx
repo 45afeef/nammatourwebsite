@@ -4,7 +4,8 @@ export default function BannerCard(
     return (
         <div
             style={{
-                backgroundImage: `url('${imageUrl}')`,
+                background: "linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%)",
+                backgroundImage: imageUrl ?? `url('${imageUrl}')`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
             }}

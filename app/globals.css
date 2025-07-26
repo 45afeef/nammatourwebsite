@@ -54,3 +54,10 @@ body {
   background: var(--brand-yellow);
   color: #111;
 }
+
+/* Resolved the rendering issue of markdown text */
+/* This happens because of the sytles are overritten by tailwind */
+/* https://stackoverflow.com/questions/74607419/react-markdown-don%C2%B4t-render-markdown */
+.markdown > * {
+  all: revert;
+}
