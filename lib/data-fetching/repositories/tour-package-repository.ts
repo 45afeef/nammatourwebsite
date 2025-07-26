@@ -69,7 +69,7 @@ function extractImageUrl(imageJson: any): string {
 function convertTourPackageFields(fields: any): TourPackage {
   return {
     ...fields,
-    images: fields.images.map((i: any) => extractImageUrl(i)),
+    images: fields.images?.map((i: any) => extractImageUrl(i)),
     packageInfo: extractPackageInfo(fields.packageInfo || []),
     keyPoints:  extractPackageInfo(fields.keyPoints || []),
   };

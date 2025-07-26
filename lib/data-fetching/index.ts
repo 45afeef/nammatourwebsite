@@ -18,9 +18,11 @@ const CONTENTFUL_PARAMS = {
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!,
 };
 
+const CONTENTFUL_PACKAGE_CONTENT_TYPE = process.env.CONTENTFUL_PACKAGE_CONTENT_TYPE || 'tourPackages';
+
 // --- Instantiate Adapters (Low-level Details) ---
 // Using ContentfulAdapter for TourPakcage data as packages are managed by Contentful
-const tourPackageContentfulAdapter = new ContentfulAdapter<TourPackageResponse>(CONTENTFUL_PARAMS, 'packagePage',);
+const tourPackageContentfulAdapter = new ContentfulAdapter<TourPackageResponse>(CONTENTFUL_PARAMS, CONTENTFUL_PACKAGE_CONTENT_TYPE,);
 // Using NotionAdapter for Blog data as blogs are managed by Notion
 const blogsNotionAdapter = new NotionAdapter(NOTION_API_KEY, NOTION_DATABASE_ID);
 
