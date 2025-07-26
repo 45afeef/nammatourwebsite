@@ -61,3 +61,15 @@ body {
 .markdown > * {
   all: revert;
 }
+.markdown > table {
+  width: 80%;
+  margin: auto;
+}
+.markdown > table th {
+  background: var(--secondary-background);
+  padding: 0.5rem;
+}
+.markdown > table td {
+  padding: 0.5rem;
+  border-bottom: #111 1px solid;
+}

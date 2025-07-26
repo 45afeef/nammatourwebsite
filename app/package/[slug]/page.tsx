@@ -1,12 +1,13 @@
 import React from "react";
-
 import { notFound } from "next/navigation";
-import { MDXRemote } from 'next-mdx-remote-client/rsc'
 
 import BannerCard from "@/components/banner-card";
 import BookingForm from "@/components/booking-form";
 import { TourPackage } from "@/lib/data-fetching/models/tour-package";
 import { dataService } from "@/lib/data-fetching";
+
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 export async function generateStaticParams() {
   const allPackages = await dataService.tourPackagesRepo.getAllTourPackages();
@@ -90,7 +91,11 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
               <div>
                 <div className="font-semibold text-lg mb-1">Overview</div>
                 <div className="text-gray-700 text-sm markdown prose prose-sm max-w-none">
-                  <MDXRemote source={tourPackage.overview} />
+                  <ReactMarkdown
+                    remarkPlugins={[remarkGfm]}
+                  >
+                    {tourPackage.overview}
+                  </ReactMarkdown>
                 </div>
               </div>
             }
