@@ -1,6 +1,7 @@
 import NotionRenderer from "@/components/NotionRenderer";
 import { Metadata } from "next";
 import { dataService } from "@/lib/data-fetching";
+import { notFound } from "next/navigation";
 
 // Next.js will invalidate the cache when a
 // request comes in, at most once every week.
@@ -28,11 +29,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
-    if (!slug) return <div>Not found</div>;
+    if (!slug) return notFound();
+
     const blogResult = await dataService.blogRepo.getBlogBySlug(slug);
     const [blogPost, blocks] = blogResult ?? [];
 
-    if (!blogPost) return <div>Not found</div>;
+    if (!blogPost) return notFound();
     // Use getBlockTree for full SSG hydration
     return (
         <article className="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden pb-10 mt-10">
