@@ -99,28 +99,28 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                 </div>
               </div>
             }
-            {
-              tourPackage.inclusion &&
-              <div>
-                <div className="font-semibold text-lg mb-1">Inclusions</div>
-                <ul className="list-disc pl-5 text-gray-700 text-sm space-y-1">
-                  {tourPackage.inclusion.map((item, idx) => (
-                    <li key={idx}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            }
-            {
-              tourPackage.exclusion &&
-              <div>
-                <div className="font-semibold text-lg mb-1">Exclusions</div>
-                <ul className="list-disc pl-5 text-gray-700 text-sm space-y-1">
-                  {tourPackage.exclusion.map((item, idx) => (
-                    <li key={idx}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            }
+            <div className="flex flex-col md:flex-row gap-4 mb-4">
+              {tourPackage.inclusion && (
+                <div className="md:w-1/2">
+                  <div className="font-bold text-3xl mb-1 text-green-500">Inclusions</div>
+                  <ul className="list-disc pl-5 text-gray-700 text-sm space-y-1">
+                    {tourPackage.inclusion.map((item, idx) => (
+                      <li key={idx}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {tourPackage.exclusion && (
+                <div className="md:w-1/2">
+                  <div className="font-bold text-3xl mb-1 text-red-500">Exclusions</div>
+                  <ul className="list-disc pl-5 text-gray-700 text-sm space-y-1">
+                    {tourPackage.exclusion.map((item, idx) => (
+                      <li key={idx}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
             {
               tourPackage.itinerary &&
               <div>
