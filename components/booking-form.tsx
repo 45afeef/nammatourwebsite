@@ -184,7 +184,7 @@ const BookingForm = () => {
 
 
     return (
-        <div className="sticky top-28">
+        <div className="sticky top-0">
             <form className="bg-gray-100 p-4 rounded shadow-xl flex flex-col gap-4 max-w-md" onSubmit={handleSubmit}>
                 <div>
                     <label className="block font-semibold mb-1">Your Name</label>

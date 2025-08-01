@@ -47,7 +47,7 @@ export default async function Page({
             <li key={index}>
               <Link
                 href={`/package/${encodeURIComponent(
-                  product.title.toLowerCase().replace(/ /g, "-")
+                  product.title.toLowerCase().replace(/\W+/g, '-')
                 )}`}
                 key={index}
               >

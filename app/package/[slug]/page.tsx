@@ -29,7 +29,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
       />
       <section className="container mx-auto px-2 py-2 flex flex-col md:flex-row gap-4 mb-4">
         <div className="flex-2">
-          <div className="sticky top-28 w-full bg-yellow-100 text-yellow-900 text-center py-1 font-semibold">
+          <div className="sticky top-0 w-full bg-yellow-100 text-yellow-900 text-center py-1 font-semibold">
             Book now, relax later. Secure your spot—no stress, no FOMO.
           </div>
           {/* Title & Subtitle */}
