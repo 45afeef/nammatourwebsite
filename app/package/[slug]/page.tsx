@@ -8,6 +8,7 @@ import { dataService } from "@/lib/data-fetching";
 
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 
 // export async function generateStaticParams() {
 //   const allPackages = await dataService.tourPackagesRepo.getAllTourPackages();
@@ -94,6 +95,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                   <ReactMarkdown
                     remarkPlugins={[remarkGfm]}
                     urlTransform={(url) => url} // override default URL handling to support tel: // unawre of potential issues
+                    rehypePlugins={[rehypeRaw] as any}
                   >
                     {tourPackage.overview}
                   </ReactMarkdown>
