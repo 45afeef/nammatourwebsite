@@ -93,6 +93,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                 <div className="text-gray-700 text-sm markdown prose prose-sm max-w-none">
                   <ReactMarkdown
                     remarkPlugins={[remarkGfm]}
+                    urlTransform={(url) => url} // override default URL handling to support tel: // unawre of potential issues
                   >
                     {tourPackage.overview}
                   </ReactMarkdown>
