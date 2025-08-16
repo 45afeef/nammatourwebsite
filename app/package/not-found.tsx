@@ -2,10 +2,10 @@ import Link from 'next/link';
 import styles from '../notfound.module.css';
 import PackageList from '../../components/packages';
 
-import { PackageRepository } from '@/lib/data-fetching/repositories/package-repository';
+import { PackageCategoryRepository } from '@/lib/data-fetching/repositories/package-repository';
 
 export default async function NotFound() {
-  const groups = await new PackageRepository().getGroups();
+  const groups = await new PackageCategoryRepository().getGroups();
 
   return (
     <div className={styles.container}>

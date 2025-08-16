@@ -1,10 +1,10 @@
 import EnquiryForm from "@/components/enquiry-form";
 import PackageList from "@/components/packages";
-import { PackageRepository } from "@/lib/data-fetching/repositories/package-repository";
+import { PackageCategoryRepository } from "@/lib/data-fetching/repositories/package-repository";
 import Image from "next/image";
 
 export default async function Home() {
-  const groups = await new PackageRepository().getGroups();
+  const groups = await new PackageCategoryRepository().getGroups();
 
   return (
     <main className="min-h-screen bg-background text-foreground">

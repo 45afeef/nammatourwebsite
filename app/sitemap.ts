@@ -2,7 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 
 import { dataService } from '@/lib/data-fetching';
-import { PackageRepository } from '@/lib/data-fetching/repositories/package-repository';
+import { PackageCategoryRepository } from '@/lib/data-fetching/repositories/package-repository';
 
 
 const BASE_URL = 'https://www.raqlin.com';
@@ -30,7 +30,7 @@ export default async function sitemap() {
     );
 
     // Package groups slugs from packages.json
-    const repo = new PackageRepository();
+    const repo = new PackageCategoryRepository();
     const collections = await repo.getAllCollections();
     const packageGroups: string[] = collections.map((group) => group.name.replace(/\s+/g, "-").toLowerCase());
 

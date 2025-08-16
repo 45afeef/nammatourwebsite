@@ -1,7 +1,7 @@
 import { PackageCollection } from '../adapters/package-json-adapter';
 import { PackageJsonAdapter } from '../adapters/package-json-adapter';
 
-export class PackageRepository {
+export class PackageCategoryRepository {
     private adapter: PackageJsonAdapter;
 
     constructor(adapter?: PackageJsonAdapter) {
