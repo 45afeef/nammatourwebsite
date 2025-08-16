@@ -257,14 +257,378 @@
           "imageUrl": "/packages/3D2N-wayanad-couple-tour-package.webp"
         }
       ]
+    },
+    {
+      "name": "Hydrabad to Wayanad Tour Packages",
+      "imageUrl": "",
+      "subGroups": [
+        {
+          "name": "Hydrabad to Wayanad Group Tour Packages",
+          "imageUrl": "/packages/b2b-group-tour-package.webp"
+        },
+        {
+          "name": "Hydrabad to Wayanad Couple Tour Packages",
+          "imageUrl": "/packages/b2b-couple-tour-package.webp"
+        },
+        {
+          "name": "Hydrabad to Wayanad Private Tour Packages",
+          "imageUrl": "/packages/b2b-private-tour-package.webp"
+        }
+      ]
+    },
+    {
+      "name": "Hydrabad to Wayanad Group Tour Packages",
+      "imageUrl": "",
+      "packages": [
+        {
+          "title": "Budget Group Tour Package from Hydrabad to Wayanad - 2 Days and 1 Night",
+          "duration": "2 Days and 1 Night",
+          "price": "₹4,500",
+          "imageUrl": "/packages/2D1N-bangalore-wayanad-tour-package.webp"
+        },
+        {
+          "title": "Budget Group Tour Package from Hydrabad to Wayanad - 3 Days and 2 Night",
+          "duration": "3 Days and 2 Night",
+          "price": "₹4,500",
+          "imageUrl": "/packages/2D1N-wayanad-family-tour-package.webp"
+        },
+        {
+          "title": "Budget Group Tour Package from Hydrabad to Wayanad - 4 Days and 3 Night",
+          "duration": "4 Days and 3 Night",
+          "price": "₹4,500",
+          "imageUrl": "/packages/2D1N-wayanad-family-common-pool-tour-package.webp"
+        }
+      ]
+    },
+    {
+      "name": "Hydrabad to Wayanad Couple Tour Packages",
+      "imageUrl": "",
+      "packages": [
+        {
+          "title": "Romantic Couple Tour Package from Hydrabad to Wayanad - 2 Days and 1 Night",
+          "duration": "2 Days and 1 Night",
+          "price": "₹5,000",
+          "imageUrl": "/packages/3D2N-wayanad-b2b-couple-tour-package.webp"
+        },
+        {
+          "title": "Romantic Couple Tour Package from Hydrabad to Wayanad - 3 Days and 2 Night",
+          "duration": "3 Days and 2 Night",
+          "price": "₹9,000",
+          "imageUrl": "/packages/2D1N-wayanad-family-private-pool-tour-package.webp"
+        },
+        {
+          "title": "Romantic Couple Tour Package from Hydrabad to Wayanad - 4 Days and 3 Night",
+          "duration": "4 Days and 3 Night",
+          "price": "₹15,000",
+          "imageUrl": "/packages/2D1N-wayanad-family-tour-package.webp"
+        }
+      ]
+    },
+    {
+      "name": "Hydrabad to Wayanad Private Tour Packages",
+      "imageUrl": "",
+      "packages": [
+        {
+          "title": "Exclusive Private Tour Package from Hydrabad to Wayanad - 2 Days and 2 Nights",
+          "duration": "2 Days and 2 Nights",
+          "price": "₹10,000",
+          "imageUrl": "/packages/3D2N-bangalore-wayanad-tour-package.webp"
+        },
+        {
+          "title": "Exclusive Private Tour Package from Hydrabad to Wayanad - 3 Days and 2 Nights",
+          "duration": "3 Days and 2 Nights",
+          "price": "₹15,000",
+          "imageUrl": "/packages/3D2N-wayanad-group-tour-package.webp"
+        },
+        {
+          "title": "Exclusive Private Tour Package from Hydrabad to Wayanad - 4 Days and 3 Nights",
+          "duration": "4 Days and 3 Nights",
+          "price": "₹18,000",
+          "imageUrl": "/packages/3D2N-wayanad-couple-tour-package.webp"
+        }
+      ]
+    },
+    {
+      "name": "Delhi to Wayanad Tour Packages",
+      "imageUrl": "",
+      "subGroups": [
+        {
+          "name": "Delhi to Wayanad Group Tour Packages",
+          "imageUrl": "/packages/b2b-group-tour-package.webp"
+        },
+        {
+          "name": "Delhi to Wayanad Couple Tour Packages",
+          "imageUrl": "/packages/b2b-couple-tour-package.webp"
+        },
+        {
+          "name": "Delhi to Wayanad Private Tour Packages",
+          "imageUrl": "/packages/b2b-private-tour-package.webp"
+        }
+      ]
+    },
+    {
+      "name": "Delhi to Wayanad Group Tour Packages",
+      "imageUrl": "",
+      "packages": [
+        {
+          "title": "Budget Group Tour Package from Delhi to Wayanad - 2 Days and 1 Night",
+          "duration": "2 Days and 1 Night",
+          "price": "₹4,500",
+          "imageUrl": "/packages/2D1N-bangalore-wayanad-tour-package.webp"
+        },
+        {
+          "title": "Budget Group Tour Package from Delhi to Wayanad - 3 Days and 2 Night",
+          "duration": "3 Days and 2 Night",
+          "price": "₹4,500",
+          "imageUrl": "/packages/2D1N-wayanad-family-tour-package.webp"
+        },
+        {
+          "title": "Budget Group Tour Package from Delhi to Wayanad - 4 Days and 3 Night",
+          "duration": "4 Days and 3 Night",
+          "price": "₹4,500",
+          "imageUrl": "/packages/2D1N-wayanad-family-common-pool-tour-package.webp"
+        }
+      ]
+    },
+    {
+      "name": "Delhi to Wayanad Couple Tour Packages",
+      "imageUrl": "",
+      "packages": [
+        {
+          "title": "Romantic Couple Tour Package from Delhi to Wayanad - 2 Days and 1 Night",
+          "duration": "2 Days and 1 Night",
+          "price": "₹5,000",
+          "imageUrl": "/packages/3D2N-wayanad-b2b-couple-tour-package.webp"
+        },
+        {
+          "title": "Romantic Couple Tour Package from Delhi to Wayanad - 3 Days and 2 Night",
+          "duration": "3 Days and 2 Night",
+          "price": "₹9,000",
+          "imageUrl": "/packages/2D1N-wayanad-family-private-pool-tour-package.webp"
+        },
+        {
+          "title": "Romantic Couple Tour Package from Delhi to Wayanad - 4 Days and 3 Night",
+          "duration": "4 Days and 3 Night",
+          "price": "₹15,000",
+          "imageUrl": "/packages/2D1N-wayanad-family-tour-package.webp"
+        }
+      ]
+    },
+    {
+      "name": "Delhi to Wayanad Private Tour Packages",
+      "imageUrl": "",
+      "packages": [
+        {
+          "title": "Exclusive Private Tour Package from Delhi to Wayanad - 2 Days and 2 Nights",
+          "duration": "2 Days and 2 Nights",
+          "price": "₹10,000",
+          "imageUrl": "/packages/3D2N-bangalore-wayanad-tour-package.webp"
+        },
+        {
+          "title": "Exclusive Private Tour Package from Delhi to Wayanad - 3 Days and 2 Nights",
+          "duration": "3 Days and 2 Nights",
+          "price": "₹15,000",
+          "imageUrl": "/packages/3D2N-wayanad-group-tour-package.webp"
+        },
+        {
+          "title": "Exclusive Private Tour Package from Delhi to Wayanad - 4 Days and 3 Nights",
+          "duration": "4 Days and 3 Nights",
+          "price": "₹18,000",
+          "imageUrl": "/packages/3D2N-wayanad-couple-tour-package.webp"
+        }
+      ]
+    },
+    {
+      "name": "Mumbai to Wayanad Tour Packages",
+      "imageUrl": "",
+      "subGroups": [
+        {
+          "name": "Mumbai to Wayanad Group Tour Packages",
+          "imageUrl": "/packages/b2b-group-tour-package.webp"
+        },
+        {
+          "name": "Mumbai to Wayanad Couple Tour Packages",
+          "imageUrl": "/packages/b2b-couple-tour-package.webp"
+        },
+        {
+          "name": "Mumbai to Wayanad Private Tour Packages",
+          "imageUrl": "/packages/b2b-private-tour-package.webp"
+        }
+      ]
+    },
+    {
+      "name": "Mumbai to Wayanad Group Tour Packages",
+      "imageUrl": "",
+      "packages": [
+        {
+          "title": "Budget Group Tour Package from Mumbai to Wayanad - 2 Days and 1 Night",
+          "duration": "2 Days and 1 Night",
+          "price": "₹4,500",
+          "imageUrl": "/packages/2D1N-bangalore-wayanad-tour-package.webp"
+        },
+        {
+          "title": "Budget Group Tour Package from Mumbai to Wayanad - 3 Days and 2 Night",
+          "duration": "3 Days and 2 Night",
+          "price": "₹4,500",
+          "imageUrl": "/packages/2D1N-wayanad-family-tour-package.webp"
+        },
+        {
+          "title": "Budget Group Tour Package from Mumbai to Wayanad - 4 Days and 3 Night",
+          "duration": "4 Days and 3 Night",
+          "price": "₹4,500",
+          "imageUrl": "/packages/2D1N-wayanad-family-common-pool-tour-package.webp"
+        }
+      ]
+    },
+    {
+      "name": "Mumbai to Wayanad Couple Tour Packages",
+      "imageUrl": "",
+      "packages": [
+        {
+          "title": "Romantic Couple Tour Package from Mumbai to Wayanad - 2 Days and 1 Night",
+          "duration": "2 Days and 1 Night",
+          "price": "₹5,000",
+          "imageUrl": "/packages/3D2N-wayanad-b2b-couple-tour-package.webp"
+        },
+        {
+          "title": "Romantic Couple Tour Package from Mumbai to Wayanad - 3 Days and 2 Night",
+          "duration": "3 Days and 2 Night",
+          "price": "₹9,000",
+          "imageUrl": "/packages/2D1N-wayanad-family-private-pool-tour-package.webp"
+        },
+        {
+          "title": "Romantic Couple Tour Package from Mumbai to Wayanad - 4 Days and 3 Night",
+          "duration": "4 Days and 3 Night",
+          "price": "₹15,000",
+          "imageUrl": "/packages/2D1N-wayanad-family-tour-package.webp"
+        }
+      ]
+    },
+    {
+      "name": "Mumbai to Wayanad Private Tour Packages",
+      "imageUrl": "",
+      "packages": [
+        {
+          "title": "Exclusive Private Tour Package from Mumbai to Wayanad - 2 Days and 2 Nights",
+          "duration": "2 Days and 2 Nights",
+          "price": "₹10,000",
+          "imageUrl": "/packages/3D2N-bangalore-wayanad-tour-package.webp"
+        },
+        {
+          "title": "Exclusive Private Tour Package from Mumbai to Wayanad - 3 Days and 2 Nights",
+          "duration": "3 Days and 2 Nights",
+          "price": "₹15,000",
+          "imageUrl": "/packages/3D2N-wayanad-group-tour-package.webp"
+        },
+        {
+          "title": "Exclusive Private Tour Package from Mumbai to Wayanad - 4 Days and 3 Nights",
+          "duration": "4 Days and 3 Nights",
+          "price": "₹18,000",
+          "imageUrl": "/packages/3D2N-wayanad-couple-tour-package.webp"
+        }
+      ]
+    },
+    {
+      "name": "Kolkatta to Wayanad Tour Packages",
+      "imageUrl": "",
+      "subGroups": [
+        {
+          "name": "Kolkatta to Wayanad Group Tour Packages",
+          "imageUrl": "/packages/kolkata-to-wayanad-tour-packages.png"
+        },
+        {
+          "name": "Kolkatta to Wayanad Couple Tour Packages",
+          "imageUrl": "/packages/b2b-couple-tour-package.webp"
+        },
+        {
+          "name": "Kolkatta to Wayanad Private Tour Packages",
+          "imageUrl": "/packages/b2b-private-tour-package.webp"
+        }
+      ]
+    },
+    {
+      "name": "Kolkatta to Wayanad Group Tour Packages",
+      "imageUrl": "",
+      "packages": [
+        {
+          "title": "Budget Group Tour Package from Kolkatta to Wayanad - 2 Days and 1 Night",
+          "duration": "2 Days and 1 Night",
+          "price": "₹4,500",
+          "imageUrl": "/packages/2D1N-bangalore-wayanad-tour-package.webp"
+        },
+        {
+          "title": "Budget Group Tour Package from Kolkatta to Wayanad - 3 Days and 2 Night",
+          "duration": "3 Days and 2 Night",
+          "price": "₹4,500",
+          "imageUrl": "/packages/2D1N-wayanad-family-tour-package.webp"
+        },
+        {
+          "title": "Budget Group Tour Package from Kolkatta to Wayanad - 4 Days and 3 Night",
+          "duration": "4 Days and 3 Night",
+          "price": "₹4,500",
+          "imageUrl": "/packages/2D1N-wayanad-family-common-pool-tour-package.webp"
+        }
+      ]
+    },
+    {
+      "name": "Kolkatta to Wayanad Couple Tour Packages",
+      "imageUrl": "",
+      "packages": [
+        {
+          "title": "Romantic Couple Tour Package from Kolkatta to Wayanad - 2 Days and 1 Night",
+          "duration": "2 Days and 1 Night",
+          "price": "₹5,000",
+          "imageUrl": "/packages/3D2N-wayanad-b2b-couple-tour-package.webp"
+        },
+        {
+          "title": "Romantic Couple Tour Package from Kolkatta to Wayanad - 3 Days and 2 Night",
+          "duration": "3 Days and 2 Night",
+          "price": "₹9,000",
+          "imageUrl": "/packages/2D1N-wayanad-family-private-pool-tour-package.webp"
+        },
+        {
+          "title": "Romantic Couple Tour Package from Kolkatta to Wayanad - 4 Days and 3 Night",
+          "duration": "4 Days and 3 Night",
+          "price": "₹15,000",
+          "imageUrl": "/packages/2D1N-wayanad-family-tour-package.webp"
+        }
+      ]
+    },
+    {
+      "name": "Kolkatta to Wayanad Private Tour Packages",
+      "imageUrl": "",
+      "packages": [
+        {
+          "title": "Exclusive Private Tour Package from Kolkatta to Wayanad - 2 Days and 2 Nights",
+          "duration": "2 Days and 2 Nights",
+          "price": "₹10,000",
+          "imageUrl": "/packages/3D2N-bangalore-wayanad-tour-package.webp"
+        },
+        {
+          "title": "Exclusive Private Tour Package from Kolkatta to Wayanad - 3 Days and 2 Nights",
+          "duration": "3 Days and 2 Nights",
+          "price": "₹15,000",
+          "imageUrl": "/packages/3D2N-wayanad-group-tour-package.webp"
+        },
+        {
+          "title": "Exclusive Private Tour Package from Kolkatta to Wayanad - 4 Days and 3 Nights",
+          "duration": "4 Days and 3 Nights",
+          "price": "₹18,000",
+          "imageUrl": "/packages/3D2N-wayanad-couple-tour-package.webp"
+        }
+      ]
     }
   ],
   "groups": [
-    "Group Tour Packages",
-    "Couple Tour Packages",
-    "Family Tour Packages",
-    "Bangalore to Wayanad Tour Packages",
-    "Chennai to Wayanad Tour Packages",
-    "Rooms"
+    
+    {"name":"Group Tour Packages","imageUrl":"/packages/group-tour-packages.webp"},
+    {"name":"Couple Tour Packages","imageUrl":"/packages/couple-tour-packages.webp"},
+    {"name":"Family Tour Packages","imageUrl":"/packages/family-tour-packages.webp"},
+    {"name":"Bangalore to Wayanad Tour Packages","imageUrl":"/packages/bangalore-to-wayanad-tour-packages.png"},
+    {"name":"Chennai to Wayanad Tour Packages","imageUrl":"/packages/chennai-to-wayanad-tour-packages.png"},
+    {"name":"Hydrabad to Wayanad Tour Packages","imageUrl":"/packages/hydrabad-to-wayanad-tour-packages.png"},
+    {"name":"Delhi to Wayanad Tour Packages","imageUrl":"/packages/delhi-to-wayanad-tour-packages.png"},
+    {"name":"Mumbai to Wayanad Tour Packages","imageUrl":"/packages/mumbai-to-wayanad-tour-packages.png"},
+    {"name":"Kolkata to Wayanad Tour Packages","imageUrl":"/packages/kolkata-to-wayanad-tour-packages.png"}
   ]
 }

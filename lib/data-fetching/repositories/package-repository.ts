@@ -16,7 +16,7 @@ export class PackageRepository {
         return this.adapter.getCollectionBySlug(slug);
     }
 
-    async getGroups(): Promise<string[]> {
+    async getGroups(): Promise<any[]> {
         return this.adapter.getGroups();
     }
 }

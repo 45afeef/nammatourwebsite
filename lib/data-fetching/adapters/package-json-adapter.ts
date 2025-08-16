@@ -44,7 +44,7 @@ export class PackageJsonAdapter {
         );
     }
 
-    async getGroups(): Promise<string[]> {
+    async getGroups(): Promise<any[]> {
         const data = await this.readData();
         return data.groups;
     }
