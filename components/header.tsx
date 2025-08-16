@@ -74,7 +74,6 @@ interface NavigationLinksProps {
 function NavigationLinks({ onclick }: NavigationLinksProps) {
     return (
         <>
-            <Link href="/" onClick={onclick} className="hover:text-brand-yellow">Home</Link>
             <Link href="/packages" onClick={onclick} className="hover:text-brand-yellow">Packages</Link>
             <Link href="/rooms" onClick={onclick} className="hover:text-brand-yellow">Rooms</Link>
             <Link href="/cabs" onClick={onclick} className="hover:text-brand-yellow">Cabs</Link>
