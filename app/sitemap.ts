@@ -30,14 +30,23 @@ export default async function sitemap() {
     );
 
     // Package groups slugs from packages.json
-    const repo = new PackageCategoryRepository();
-    const collections = await repo.getAllCollections();
+    const pkgCatRepo = new PackageCategoryRepository();
+    const collections = await pkgCatRepo.getAllCollections();
     const packageGroups: string[] = collections.map((group) => group.name.replace(/\s+/g, "-").toLowerCase());
 
     // Single package slugs (if you have a /package/[slug] route)
     const packageSlugs: string[] = await dataService.tourPackagesRepo.getAllTourPackages().then(packages =>
         packages.map((pkg) => pkg.slug)
     );
+    const morePackageSlugs: string[] = collections
+        .flatMap((collection) =>
+            (collection.packages || []).map((pkg) =>
+                pkg.title ? pkg.title.replace(/\W+/g, "-").toLowerCase() : null
+            )
+        )
+        .filter(Boolean) as string[];
+
+    packageSlugs.push(...morePackageSlugs);
 
     let urls = staticPages.map((page) => ({
         url: `${BASE_URL}/${page}`,
