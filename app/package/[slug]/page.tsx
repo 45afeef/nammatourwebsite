@@ -17,8 +17,112 @@ import rehypeRaw from "rehype-raw";
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const tourPackage: TourPackage | null = await dataService.tourPackagesRepo.getTourPackageBySlug(slug);
-  if (!tourPackage) return notFound();
+  let tourPackage: TourPackage | null = await dataService.tourPackagesRepo.getTourPackageBySlug(slug);
+
+  if (!tourPackage) {
+    // Generate a realistic mock package using the slug
+    // Extract origin city from slug, always set destination as Wayanad
+    const knownCities = [
+      "mumbai", "kolkata", "delhi", "hyderabad", "chennai", "bangalore"
+    ];
+    let origin = "Bangalore";
+    for (const city of knownCities) {
+      if (slug.toLowerCase().includes(city)) {
+        origin = city.charAt(0).toUpperCase() + city.slice(1);
+        break;
+      }
+    }
+    const location = `${origin} to Wayanad`;
+    const types = ["Group", "Family", "Couple", "Adventure", "Luxury", "Budget"];
+    const type = types[Math.abs(slug.split('').reduce((a, c) => a + c.charCodeAt(0), 0)) % types.length];
+    const durations = [
+      "2 Days / 1 Night",
+      "3 Days / 2 Nights",
+      "4 Days / 3 Nights",
+      "5 Days / 4 Nights"
+    ];
+    const duration = durations[Math.abs(slug.length + slug.charCodeAt(0)) % durations.length];
+    const images = [
+      "/images/wayanad-bg.jpg",
+      "/images/bg-1.webp",
+      "/images/rooms/room-1.webp",
+      "/images/rooms/room-2.webp",
+      "/images/rooms/room-3.webp",
+      "/images/rooms/room-4.webp",
+      "/images/rooms/room-5.webp",
+      "/images/rooms/room-6.webp",
+      "/images/rooms/room-7.webp",
+      "/images/rooms/room-8.webp",
+      "/images/rooms/room-9.webp",
+      "/images/rooms/room-10.webp",
+      "/images/rooms/room-11.webp",
+      "/images/rooms/room-12.webp",
+      "/images/rooms/room-13.webp",
+      "/images/rooms/room-14.webp",
+      "/images/rooms/room-15.webp",
+      "/images/rooms/room-16.webp",
+      "/images/rooms/room-17.webp",
+      "/images/rooms/room-18.webp",
+      "/images/rooms/room-19.webp",
+      "/images/rooms/room-20.webp",
+      "/images/rooms/room-21.webp",
+      "/images/rooms/room-22.webp",
+      "/images/rooms/room-23.webp",
+      "/images/rooms/room-24.webp",
+    ];
+    const selectedImages = [];
+    for (let i = 0; i < images.length && selectedImages.length < 7; i++) {
+      // Pick every Nth image based on slug length to vary selection
+      if (i % Math.max(1, Math.floor(slug.length / 3)) === 0) {
+        selectedImages.push(images[i]);
+      }
+    }
+    while (selectedImages.length < 7) {
+      // If not enough, fill from start
+      selectedImages.push(images[selectedImages.length % images.length]);
+    }
+    const highlights = [
+      { title: "Scenic landscapes", value: "Enjoy breathtaking views and natural beauty throughout your trip.", icon: "🌄" },
+      { title: "Handpicked hotels", value: "Stay at carefully selected premium hotels for your comfort.", icon: "🏨" },
+      { title: "Local sightseeing", value: "Explore popular attractions with guided tours.", icon: "🗺️" },
+      { title: "Expert guides", value: "Benefit from knowledgeable local guides.", icon: "🧑‍💼" },
+      { title: "Flexible itinerary", value: "Customize your travel plans as per your needs.", icon: "📝" },
+      { title: "All transfers included", value: "Enjoy hassle-free transfers during your trip.", icon: "🚗" },
+      { title: "24/7 support", value: "Get round-the-clock assistance during your journey.", icon: "📞" },
+      { title: "Flexible Dates", value: "Choose your own dates!", icon: "📅" },
+      { title: "Customizable", value: "Itinerary can be tailored.", icon: "📝" }
+    ];
+
+    const shuffledHighlights = highlights.sort(() => 0.5 - Math.random()).slice(0, 3);
+    tourPackage = {
+      slug,
+      title: `${location} ${type} Tour Package`,
+      subTitle: `Experience the best of ${location} with our exclusive ${type.toLowerCase()} package.`,
+      bannerImage: selectedImages[0],
+      images: selectedImages,
+      packageInfo: [
+        { title: "Duration", value: duration, icon: "⏰" },
+        { title: "Location", value: location, icon: "📍" },
+        { title: "Type", value: type, icon: "👨‍👩‍👧‍👦" }
+      ],
+      keyPoints: shuffledHighlights,
+      overview: `Discover the wonders of Wayanad with our ${duration} ${type.toLowerCase()} tour package from ${origin}. From breathtaking sights to curated experiences, this package is designed for those who want to make the most of their getaway.\n\n**Highlights:**\n- ${shuffledHighlights.map(h => h.title).join("\n- ")}`,
+      inclusion: [
+        "Accommodation at premium hotels",
+        "Daily breakfast",
+        "All transfers and sightseeing by private vehicle",
+        "Experienced local guide",
+        "Complimentary welcome drink"
+      ],
+      exclusion: [
+        "Personal expenses",
+        "Lunch & Dinner unless specified",
+        "Entry fees to attractions",
+        "Travel insurance"
+      ],
+      itinerary: `Day 1: Departure from ${origin}, arrival at Wayanad, hotel check-in, and local sightseeing.\nDay 2: Explore top attractions with a guided tour.\n${duration.startsWith('3') || duration.startsWith('4') ? 'Day 3: Leisure day or optional activities.\n' : ''}Departure after breakfast.`,
+    } as TourPackage;
+  }
 
   return (
     <main className="min-h-screen max-w-11/12 mx-auto">
