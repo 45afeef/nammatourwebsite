@@ -2,14 +2,16 @@
 
 import React, { useState, useRef, useEffect } from "react";
 
+import { ReactNode } from "react";
 interface LightboxProps {
   images: string[];
   initialIndex?: number;
   onClose: () => void;
+  cta?: ReactNode;
 }
 
 
-const Lightbox: React.FC<LightboxProps> = ({ images, initialIndex = 0, onClose }) => {
+const Lightbox: React.FC<LightboxProps> = ({ images, initialIndex = 0, onClose, cta }) => {
   const [current, setCurrent] = useState(initialIndex);
   const [imgLoaded, setImgLoaded] = useState(false);
   const [closing, setClosing] = useState(false);
@@ -104,15 +106,18 @@ const Lightbox: React.FC<LightboxProps> = ({ images, initialIndex = 0, onClose }
       >
         &#8594;
       </button>
-      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
-        {images.map((img, idx) => (
-          <button
-            key={idx}
-            className={`w-3 h-3 rounded-full border-2 ${idx === current ? 'bg-white border-white' : 'bg-gray-400 border-gray-300'}`}
-            onClick={() => setCurrent(idx)}
-            aria-label={`Go to image ${idx + 1}`}
-          />
-        ))}
+      <div className="absolute bottom-4 left-0 right-0 flex flex-col items-center gap-2">
+        <div className="flex justify-center gap-2">
+          {images.map((img, idx) => (
+            <button
+              key={idx}
+              className={`w-3 h-3 rounded-full border-2 ${idx === current ? 'bg-white border-white' : 'bg-gray-400 border-gray-300'}`}
+              onClick={() => setCurrent(idx)}
+              aria-label={`Go to image ${idx + 1}`}
+            />
+          ))}
+        </div>
+        {cta && <div className="mt-3">{cta}</div>}
       </div>
       <style jsx global>{`
         @keyframes lightbox-dissolve {

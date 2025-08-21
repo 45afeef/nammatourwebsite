@@ -176,7 +176,7 @@ const BookingForm = () => {
         }
         setSubmitting(true);
         const msg = `Hi, I am interested in the Wayanad package (${form.packageType}). Please check availability for my dates.\nStart: ${form.startDate}\nEnd: ${form.endDate}\nAdults: ${form.adults}\nKids (Below 9): ${form.kids}\nName: ${form.name}\nPage: ${typeof window !== 'undefined' ? window.location.href : ''}`;
-        const url = `https://wa.me/918891998005?text=${encodeURIComponent(msg)}`;
+        const url = `https://wa.me/917907575484?text=${encodeURIComponent(msg)}`;
         window.open(url, '_blank');
         setSubmitting(false);
     };

@@ -48,7 +48,7 @@ export default async function RoomPage({ params }: { params: Promise<{ slug: str
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-2">Book This Room</h2>
           <a
-            href={`https://wa.me/918891998005?text=Hi%2C%20I%20am%20interested%20in%20the%20room%20${encodeURIComponent(slug.replace(/-/g, ' '))}.%20Please%20share%20availability%20and%20details.`}
+            href={`https://wa.me/917907575484?text=Hi%2C%20I%20am%20interested%20in%20the%20room%20${encodeURIComponent(slug.replace(/-/g, ' '))}.%20Please%20share%20availability%20and%20details.`}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-green-600 text-white font-semibold py-2 px-6 rounded hover:bg-green-700 transition"
