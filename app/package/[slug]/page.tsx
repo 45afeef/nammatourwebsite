@@ -10,10 +10,10 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 
-// export async function generateStaticParams() {
-//   const allPackages = await dataService.tourPackagesRepo.getAllTourPackages();
-//   return allPackages.map((pkg: TourPackage) => ({ slug: pkg.slug }));
-// }
+export async function generateStaticParams() {
+  const allPackages = await dataService.tourPackagesRepo.getAllTourPackages();
+  return allPackages.map((pkg: TourPackage) => ({ slug: pkg.slug }));
+}
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
