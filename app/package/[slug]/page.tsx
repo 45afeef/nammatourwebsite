@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import BannerCard from "@/components/banner-card";
 import BookingForm from "@/components/booking-form";
+import GalleryWithLightbox from "@/components/GalleryWithLightbox";
 import { TourPackage } from "@/lib/data-fetching/models/tour-package";
 import { dataService } from "@/lib/data-fetching";
 
@@ -159,19 +160,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             ))}
           </div>
           {/* Gallery */}
-          <div className="mb-2">
-            <div className="font-semibold mb-1">Gallery</div>
-            <div className="flex gap-1 overflow-x-auto">
-              {tourPackage.images?.map((img, idx) => (
-                <img
-                  key={idx}
-                  src={img}
-                  alt={`Gallery ${idx + 1}`}
-                  className="w-48 h-32 object-cover rounded border border-gray-200"
-                />
-              ))}
-            </div>
-          </div>
+          {tourPackage && <GalleryWithLightbox images={(tourPackage as TourPackage).images || []} />}
 
           {/* Key Points */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-2">
