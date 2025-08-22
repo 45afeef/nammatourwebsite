@@ -8,10 +8,10 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
                     <div className="flex flex-col items-center">
                         <Link href="/">
-                            <Image src="/logo-white.png" alt="Raqlin Logo" width={200} height={50} />
+                            <Image src="/raqlin_white_logo.svg" alt="Raqlin Logo" width={200} height={50} />
                         </Link>
                         <p className="mt-4 text-gray-300 text-center">
-                            Your trusted partner for memorable Wayanad experiences
+                            means your trusted partner<br />for memorable travel<br />experiences
                         </p>
                     </div>
                     <div>

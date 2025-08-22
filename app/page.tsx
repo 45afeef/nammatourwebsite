@@ -19,16 +19,9 @@ export default async function Home() {
     {
       name: "Rahul Sharma",
       location: "Bangalore, India",
-      image: "/testimonials/person-2.png",
+      image: "/testimonials/male.png",
       message:
         "From booking to sightseeing, everything was perfectly organized. The local insights made our experience truly special.",
-    },
-    {
-      name: "Priya Nair",
-      location: "Chennai, India",
-      image: "/testimonials/person-3.png",
-      message:
-        "Loved the handpicked stays and personalized service. We explored hidden gems we wouldn't have found otherwise!",
     },
     {
       name: "Suresh Kumar",
@@ -36,6 +29,13 @@ export default async function Home() {
       image: "/testimonials/male.png",
       message:
         "The itinerary was well planned and the team was always available for support. Will book again!",
+    },
+    {
+      name: "Priya Nair",
+      location: "Chennai, India",
+      image: "/testimonials/person-3.png",
+      message:
+        "Loved the handpicked stays and personalized service. We explored hidden gems we wouldn't have found otherwise!",
     },
     {
       name: "Meera Joshi",
@@ -47,7 +47,7 @@ export default async function Home() {
     {
       name: "Vikram Singh",
       location: "Delhi, India",
-      image: "/testimonials/male.png",
+      image: "/testimonials/person-2.png",
       message:
         "Our family had a great time. The kids loved the adventure activities. Thank you for the memories!",
     },

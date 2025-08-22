@@ -24,10 +24,10 @@ export default function Header() {
                         <div className="logo ml-10">
                             <Link href="/">
                                 <div className="md:hidden">
-                                    <Image src="/logo-white.png" alt="Raqlin Logo" width={75} height={75} />
+                                    <Image src="/raqlin_black_logo.svg" alt="Raqlin Logo" width={75} height={75} />
                                 </div>
                                 <div className="hidden md:block">
-                                    <Image src="/logo-white.png" alt="Raqlin Logo" width={100} height={100} />
+                                    <Image src="/raqlin_black_logo.svg" alt="Raqlin Logo" width={150} height={100} />
                                 </div>
                             </Link>
                         </div>
