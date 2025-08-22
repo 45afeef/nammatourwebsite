@@ -1,10 +1,71 @@
 import EnquiryForm from "@/components/enquiry-form";
 import PackageList from "@/components/packages";
+import Testimonials from "@/components/testimonials";
 import { PackageCategoryRepository } from "@/lib/data-fetching/repositories/package-repository";
 import Image from "next/image";
 
 export default async function Home() {
   const groups = await new PackageCategoryRepository().getGroups();
+
+  {/* Testimonials Data */ }
+  const testimonials = [
+    {
+      name: "Anjali Menon",
+      location: "Kochi, India",
+      image: "/testimonials/person-1.png",
+      message:
+        "Our Wayanad trip was seamless and memorable. The team took care of every detail and made us feel at home. Highly recommended!",
+    },
+    {
+      name: "Rahul Sharma",
+      location: "Bangalore, India",
+      image: "/testimonials/person-2.png",
+      message:
+        "From booking to sightseeing, everything was perfectly organized. The local insights made our experience truly special.",
+    },
+    {
+      name: "Priya Nair",
+      location: "Chennai, India",
+      image: "/testimonials/person-3.png",
+      message:
+        "Loved the handpicked stays and personalized service. We explored hidden gems we wouldn't have found otherwise!",
+    },
+    {
+      name: "Suresh Kumar",
+      location: "Hyderabad, India",
+      image: "/testimonials/male.png",
+      message:
+        "The itinerary was well planned and the team was always available for support. Will book again!",
+    },
+    {
+      name: "Meera Joshi",
+      location: "Mumbai, India",
+      image: "/testimonials/female.png",
+      message:
+        "A wonderful experience from start to finish. The local food recommendations were spot on.",
+    },
+    {
+      name: "Vikram Singh",
+      location: "Delhi, India",
+      image: "/testimonials/male.png",
+      message:
+        "Our family had a great time. The kids loved the adventure activities. Thank you for the memories!",
+    },
+    {
+      name: "Lakshmi R",
+      location: "Trivandrum, India",
+      image: "/testimonials/female.png",
+      message:
+        "Professional and friendly team. The stays were comfortable and the sightseeing was breathtaking.",
+    },
+    {
+      name: "Arjun Pillai",
+      location: "Pune, India",
+      image: "/testimonials/male.png",
+      message:
+        "Highly recommended for anyone looking to explore Wayanad. Hassle-free and enjoyable.",
+    },
+  ];
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -77,40 +138,8 @@ export default async function Home() {
 
       <div className="mx-auto px-2 max-w-11/12"><PackageList groups={groups} /></div>
       {/* Testimonials Section */}
-      <section className="py-8">
-        <div className="container mx-auto px-2 md:max-w-11/12">
-          <h2 className="text-4xl font-bold text-center mb-4 text-brand-yellow">What Our Travelers Say</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[1, 2, 3].map((index) => (
-              <div key={index} className="card">
-                <div className="flex items-center mb-4 w-full h-20">
-                  <Image
-                    src={`/testimonials/person-${index}.png`}
-                    alt="Reviewer"
-                    width={60}
-                    height={60}
-                    className="rounded-full"
-                  />
-                  <div className="ml-4">
-                    <h4 className="font-bold text-foreground">John Doe</h4>
-                    <p className="text-sm text-foreground/70">Bangalore, India</p>
-                  </div>
-                </div>
-                <div className="flex text-brand-yellow mb-4">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <svg key={star} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.462a1 1 0 00.95-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-foreground/80">
-                  "Amazing experience! Highly recommend Raqlin for your next raqlin."
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
+      <Testimonials testimonials={testimonials} />
 
       {/* Why Us Section */}
       <section className="py-20">
