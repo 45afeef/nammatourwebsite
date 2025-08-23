@@ -2,7 +2,6 @@ import fs from 'fs/promises';
 import path from 'path';
 
 import { dataService } from '@/lib/data-fetching';
-import { PackageCategoryRepository } from '@/lib/data-fetching/repositories/package-repository';
 
 
 const BASE_URL = 'https://www.raqlin.com';
@@ -30,8 +29,7 @@ export default async function sitemap() {
     );
 
     // Package groups slugs from packages.json
-    const pkgCatRepo = new PackageCategoryRepository();
-    const collections = await pkgCatRepo.getAllCollections();
+    const collections = await dataService.categoryRepo.getAllCollections();
     const packageGroups: string[] = collections.map((group) => group.name.replace(/\s+/g, "-").toLowerCase());
 
     // Single package slugs (if you have a /package/[slug] route)

@@ -1,8 +1,8 @@
 import PackageList from "@/components/packages";
-import { PackageCategoryRepository } from "@/lib/data-fetching/repositories/package-repository";
+import { dataService } from "@/lib/data-fetching";
 
 export default async function PackagesPage() {
-    const groups = await new PackageCategoryRepository().getGroups();
+    const groups = await dataService.categoryRepo.getGroups();
 
     return <PackageList groups={groups} />;
 }

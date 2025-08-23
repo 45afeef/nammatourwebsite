@@ -620,12 +620,11 @@
     }
   ],
   "groups": [
-    
-    {"name":"Group Tour Packages","imageUrl":"/packages/group-tour-packages.webp"},
+    {"name":"Chennai to Wayanad Tour Packages","imageUrl":"/packages/chennai-to-wayanad-tour-packages.png"},
     {"name":"Couple Tour Packages","imageUrl":"/packages/couple-tour-packages.webp"},
     {"name":"Family Tour Packages","imageUrl":"/packages/family-tour-packages.webp"},
     {"name":"Bangalore to Wayanad Tour Packages","imageUrl":"/packages/bangalore-to-wayanad-tour-packages.png"},
-    {"name":"Chennai to Wayanad Tour Packages","imageUrl":"/packages/chennai-to-wayanad-tour-packages.png"},
+    {"name":"Group Tour Packages","imageUrl":"/packages/group-tour-packages.webp"},
     {"name":"Hydrabad to Wayanad Tour Packages","imageUrl":"/packages/hydrabad-to-wayanad-tour-packages.png"},
     {"name":"Delhi to Wayanad Tour Packages","imageUrl":"/packages/delhi-to-wayanad-tour-packages.png"},
     {"name":"Mumbai to Wayanad Tour Packages","imageUrl":"/packages/mumbai-to-wayanad-tour-packages.png"},

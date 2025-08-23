@@ -1,12 +1,11 @@
 import ImageCard from "@/components/image-card";
 import ProductCard from "@/components/product-card";
 import Link from "next/link";
-import { PackageCategoryRepository } from "@/lib/data-fetching/repositories/package-repository";
 import { notFound } from "next/navigation";
+import { dataService } from "@/lib/data-fetching";
 
 export async function generateStaticParams() {
-  const repo = new PackageCategoryRepository();
-  const collections = await repo.getAllCollections();
+  const collections = await dataService.categoryRepo.getAllCollections();
   return collections.map((group) => ({
     slug: group.name.replace(/\s+/g, "-").toLowerCase(),
   }));
@@ -18,8 +17,8 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const repo = new PackageCategoryRepository();
-  const packageCollection = await repo.getCollectionBySlug(slug);
+
+  const packageCollection = await dataService.categoryRepo.getCollectionBySlug(slug);
 
   if (!packageCollection) return notFound();
 

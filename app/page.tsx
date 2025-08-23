@@ -1,12 +1,13 @@
 import EnquiryForm from "@/components/enquiry-form";
 import PackageList from "@/components/packages";
 import Testimonials from "@/components/testimonials";
-import { PackageCategoryRepository } from "@/lib/data-fetching/repositories/package-repository";
+import { dataService } from "@/lib/data-fetching";
 import Image from "next/image";
 import Link from "next/link";
 
 export default async function Home() {
-  const groups = await new PackageCategoryRepository().getGroups();
+      const groups = await dataService.categoryRepo.getGroups();
+  
 
   {/* Testimonials Data */ }
   const testimonials = [

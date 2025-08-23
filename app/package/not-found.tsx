@@ -1,11 +1,10 @@
 import Link from 'next/link';
 import styles from '../notfound.module.css';
 import PackageList from '../../components/packages';
-
-import { PackageCategoryRepository } from '@/lib/data-fetching/repositories/package-repository';
+import { dataService } from '@/lib/data-fetching';
 
 export default async function NotFound() {
-  const groups = await new PackageCategoryRepository().getGroups();
+  const groups = await dataService.categoryRepo.getGroups();
 
   return (
     <div className={styles.container}>

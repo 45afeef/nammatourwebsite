@@ -7,6 +7,7 @@ import { BlogRepository } from './repositories/blog-repository';
 import { TourPackageRepository } from './repositories/tour-package-repository';
 
 import { TourPackageResponse } from './models/tour-package';
+import { PackageCategoryRepository } from './repositories/package-repository';
 
 
 // --- Configuration ---
@@ -37,6 +38,7 @@ const blogRepository = new BlogRepository(blogsNotionAdapter);
 export const dataService = new DataService(
     tourPackageRepository,
     blogRepository,
+    new PackageCategoryRepository()
 );
 
 
