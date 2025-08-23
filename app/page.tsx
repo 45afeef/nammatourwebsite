@@ -3,6 +3,7 @@ import PackageList from "@/components/packages";
 import Testimonials from "@/components/testimonials";
 import { PackageCategoryRepository } from "@/lib/data-fetching/repositories/package-repository";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function Home() {
   const groups = await new PackageCategoryRepository().getGroups();
@@ -117,20 +118,21 @@ export default async function Home() {
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
-              { title: 'Resorts', icon: "🏠", },
+              { title: 'Resorts', icon: "🏠", link: "/rooms" },
               { title: 'Camping', icon: "⛺", },
               { title: 'Sightseeing', icon: "🚞", },
               { title: 'Treks & Hikes', icon: "🛠️", },
-              { title: 'Cab Services', icon: "🚕", },
+              { title: 'Cab Services', icon: "🚕", link: "/cabs" },
               { title: 'Tickets', icon: "🎟️", },
-            ].map((item) => (
-              <div key={item.title} className="text-center">
+            ].map((item) => {
+              var element = <div key={item.title} className="text-center">
                 <div className="w-16 h-16 mx-auto mb-4 text-5xl">
                   {item.icon}
                 </div>
                 <h3 className="font-medium">{item.title}</h3>
               </div>
-            ))}
+              return item.link ? <Link key={item.title} href={item.link}>{element}</Link> : element;
+            })}
           </div>
         </div>
       </section>
