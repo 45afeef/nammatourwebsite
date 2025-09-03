@@ -32,6 +32,7 @@ const BookingForm = () => {
     });
     // WHY: The form state holds all user input. Defaults are chosen to minimize user effort for the most common booking scenario.
     const [submitting, setSubmitting] = useState(false);
+    const [submitType, setSubmitType] = useState<'whatsapp' | 'razorpay'>('razorpay');
 
     // Predefined durations
     const durations = [
@@ -160,8 +161,11 @@ const BookingForm = () => {
     };
     // WHY: handleChange updates form state for all fields, converting adults/kids to numbers for validation and calculation.
 
-    const handleSubmit = (e: React.FormEvent) => {
+    // WHY: handleSubmit validates the form, prevents invalid bookings, and opens WhatsApp with a prefilled message for seamless booking experience.
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
         if (!form.startDate || !form.endDate) {
             alert("Please select both start and end dates.");
             return;
@@ -174,17 +178,61 @@ const BookingForm = () => {
             alert("At least one adult is required.");
             return;
         }
-        setSubmitting(true);
-        const msg = `Hi, I am interested in the Wayanad package (${form.packageType}). Please check availability for my dates.\nStart: ${form.startDate}\nEnd: ${form.endDate}\nAdults: ${form.adults}\nKids (Below 9): ${form.kids}\nName: ${form.name}\nPage: ${typeof window !== 'undefined' ? window.location.href : ''}`;
-        const url = `https://wa.me/917907575484?text=${encodeURIComponent(msg)}`;
-        window.open(url, '_blank');
-        setSubmitting(false);
-    };
-    // WHY: handleSubmit validates the form, prevents invalid bookings, and opens WhatsApp with a prefilled message for seamless booking experience.
 
+        setSubmitting(true);
+
+        if (submitType === 'whatsapp') {
+            const msg = `Hi, I am interested in the Wayanad package (${form.packageType}). Please check availability for my dates.\nStart: ${form.startDate}\nEnd: ${form.endDate}\nAdults: ${form.adults}\nKids (Below 9): ${form.kids}\nName: ${form.name}\nPage: ${typeof window !== 'undefined' ? window.location.href : ''}`;
+            const url = `https://wa.me/917907575484?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+            setSubmitting(false);
+        } else if (submitType === 'razorpay') {
+            // Example: 2500 per adult, 0 for kids (customize as needed)
+            const amount = form.adults * 2500;
+            try {
+                const res = await fetch('/api/razorpay/order', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ amount, currency: 'INR' })
+                });
+                const data = await res.json();
+                if (!data.id) throw new Error(data.error || 'Order creation failed');
+                const options = {
+                    key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || '',
+                    amount: data.amount,
+                    currency: data.currency,
+                    name: 'Raqlin',
+                    description: `Booking for ${form.name}`,
+                    order_id: data.id,
+                    handler: function (response: any) {
+                        alert('Payment successful! Payment ID: ' + response.razorpay_payment_id);
+                    },
+                    prefill: {
+                        name: form.name,
+                    },
+                    notes: {
+                        packageType: form.packageType,
+                        startDate: form.startDate,
+                        endDate: form.endDate,
+                        adults: form.adults,
+                        kids: form.kids,
+                    },
+                    theme: { color: '#3399cc' },
+                };
+                // @ts-ignore
+                const rzp = new window.Razorpay(options);
+                rzp.open();
+            } catch (err: any) {
+                alert('Payment error: ' + err.message);
+            }
+            setSubmitting(false);
+        }
+    };
 
     return (
         <div className="sticky top-0">
+            {/* Razorpay script loader */}
+            <script src="https://checkout.razorpay.com/v1/checkout.js" async></script>
             <form className="bg-gray-100 p-4 rounded shadow-xl flex flex-col gap-4 max-w-md" onSubmit={handleSubmit}>
                 <div>
                     <label className="block font-semibold mb-1">Your Name</label>
@@ -298,21 +346,37 @@ const BookingForm = () => {
                 <div className="flex gap-4">
                     <div className="flex-1">
                         <label className="block font-semibold mb-1">Adults</label>
-                        <input name="adults" type="number" min={1} max={14} value={form.adults} onChange={handleChange} className="w-full border rounded p-2" />
+                        <input name="adults" type="number" min={1} max={99} value={form.adults} onChange={handleChange} className="w-full border rounded p-2" />
                     </div>
                     <div className="flex-1">
                         <label className="block font-semibold mb-1">Kids (Below 9)</label>
                         <input name="kids" type="number" min={0} max={10} value={form.kids} onChange={handleChange} className="w-full border rounded p-2" />
                     </div>
                 </div>
-                <div className="text-2xl font-bold text-green-700 mb-2">₹2,500 <span className="text-base text-gray-400 line-through ml-2">₹3,500</span></div>
-                <button
-                    type="submit"
-                    className="bg-green-600 text-white font-semibold py-2 rounded text-center hover:bg-green-700 transition mt-2"
-                    disabled={submitting}
-                >
-                    {submitting ? "Processing..." : "Check Availability & Book on WhatsApp"}
-                </button>
+                <text>
+
+                    pay advance of &nbsp;
+                    <span className="text-2xl font-bold text-green-700 mb-2">₹{(form.adults * 2000).toLocaleString()}<span className="text-base text-gray-400 line-through ml-2">₹{(form.adults * 3500).toLocaleString()}</span></span>
+                    &nbsp; per adult
+                </text>
+                <div className="flex gap-4">
+                    <button
+                        type="submit"
+                        className="flex-1/2 bg-green-600 text-white font-medium py-2 rounded text-center hover:bg-green-700 transition mt-2"
+                        disabled={submitting}
+                        onClick={() => setSubmitType('whatsapp')}
+                    >
+                        {submitting && submitType === 'whatsapp' ? "Processing..." : "Check Availability & Book on WhatsApp"}
+                    </button>
+                    <button
+                        type="submit"
+                        className="flex-1/2 bg-blue-600 text-white font-semibold py-2 rounded text-center hover:bg-blue-700 transition mt-2"
+                        disabled={submitting}
+                        onClick={() => setSubmitType('razorpay')}
+                    >
+                        {submitting && submitType === 'razorpay' ? "Processing..." : "Pay Now (Razorpay)"}
+                    </button>
+                </div>
             </form>
         </div>
     );
