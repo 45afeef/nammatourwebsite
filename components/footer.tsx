@@ -41,7 +41,7 @@ export default function Footer() {
                             <li>
                                 <a href="tel:+917558009733" className="hover:text-brand-yellow">Phone: +91 7558009733</a>
                             </li>
-                            <li>Email: info@raqlin.com</li>
+                            <li>Email: mallulprogramming@gmail.com</li>
                             <li>Address: Wayanad, Kerala, India</li>
                         </ul>
                     </div>
