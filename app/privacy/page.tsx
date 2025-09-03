@@ -4,7 +4,7 @@ export default function PrivacyPolicyPage() {
     <main className="container mx-auto px-4 py-16">
       <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
       <section className="mb-8">
-        <p className="mb-4 text-lg text-gray-700">Your privacy matters to us. At NammaTour, we are committed to protecting your personal information and ensuring your data is handled responsibly.</p>
+        <p className="mb-4 text-lg text-gray-700">Your privacy matters to us. At Raqlin, we are committed to protecting your personal information and ensuring your data is handled responsibly.</p>
         <ul className="list-disc ml-6 space-y-2">
           <li>We only collect information necessary for booking and customer service.</li>
           <li>Your data is never shared with third parties except as required for your travel arrangements.</li>

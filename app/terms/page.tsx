@@ -4,7 +4,7 @@ export default function TermsPage() {
     <main className="container mx-auto px-4 py-16">
       <h1 className="text-3xl font-bold mb-6">Terms of Service</h1>
       <section className="mb-8">
-        <p className="mb-4 text-lg text-gray-700">By using NammaTour’s website and services, you agree to the following terms. We strive to provide a seamless and enjoyable experience for all our customers.</p>
+        <p className="mb-4 text-lg text-gray-700">By using Raqlin’s website and services, you agree to the following terms. We strive to provide a seamless and enjoyable experience for all our customers.</p>
         <ul className="list-disc ml-6 space-y-2">
           <li>All bookings are subject to availability and confirmation.</li>
           <li>Prices and inclusions are clearly listed for each package; please review before booking.</li>

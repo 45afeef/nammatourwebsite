@@ -20,9 +20,9 @@ export default function EnquiryForm() {
                                     <FaWhatsapp className="mr-3" size={24} />
                                     Chat on WhatsApp
                                 </a>
-                                <a href="mailto:info@namm-tour.com" className="flex items-center text-lg text-primary hover:underline">
+                                <a href="mailto:malluprogramming@gmail.com" className="flex items-center text-lg text-primary hover:underline">
                                     <FaEnvelope className="mr-3" size={24} />
-                                    info@raqlin.com
+                                    malluprogramming@gmail.com
                                 </a>
 
                             </div>
