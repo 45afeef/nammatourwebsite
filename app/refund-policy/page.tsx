@@ -5,7 +5,7 @@ export default function RefundPolicyPage() {
       <h1 className="text-3xl font-bold mb-6">Refund & Cancellation Policy</h1>
       <section className="mb-8">
         <p className="mb-4 text-lg text-gray-700">
-          Raqlin (Jithin/Afeef, 7907575484 | 7558009733) believes in helping its customers as far as possible, and has a liberal cancellation and refund policy. Please read below for details:
+          Raqlin (Jithin/Afeef, 7907575484 | 7012953286) believes in helping its customers as far as possible, and has a liberal cancellation and refund policy. Please read below for details:
         </p>
         <ul className="list-disc ml-6 space-y-2">
           <li>Cancellations will be considered only if the request is made at least 3-5 days before your scheduled trip. However, requests may not be entertained if the booking process has already commenced or services have been initiated.</li>

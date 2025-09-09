@@ -5,7 +5,7 @@ export default function TermsPage() {
       <h1 className="text-3xl font-bold mb-6">Terms & Conditions</h1>
       <section className="mb-8">
         <p className="mb-4 text-lg text-gray-700">
-          By using Raqlin’s website and services, operated by Jithin & Afeef (Contact: 7907575484 | 7558009733), you agree to the following terms. We strive to provide a seamless and enjoyable experience for all our customers.
+          By using Raqlin’s website and services, operated by Jithin & Afeef (Contact: 7907575484 | 7012953286), you agree to the following terms. We strive to provide a seamless and enjoyable experience for all our customers.
         </p>
         <ul className="list-disc ml-6 space-y-2">
           <li>The content of this website is subject to change without notice.</li>

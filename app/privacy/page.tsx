@@ -5,7 +5,7 @@ export default function PrivacyPolicyPage() {
       <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
       <section className="mb-8">
         <p className="mb-4 text-lg text-gray-700">
-          This privacy policy sets out how Raqlin (Jithin/Afeef, 7907575484 | 7558009733) uses and protects any information that you give when you visit our website or purchase from us. Raqlin is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified, you can be assured that it will only be used in accordance with this privacy statement.
+          This privacy policy sets out how Raqlin (Jithin/Afeef, 7907575484 | 7012953286) uses and protects any information that you give when you visit our website or purchase from us. Raqlin is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified, you can be assured that it will only be used in accordance with this privacy statement.
         </p>
         <ul className="list-disc ml-6 space-y-2">
           <li>We may collect information such as your name, contact details (including email address), demographic information, preferences, and other relevant data for service improvement and internal record keeping.</li>

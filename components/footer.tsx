@@ -39,7 +39,8 @@ export default function Footer() {
                         <h4 className="text-xl font-bold mb-4 text-brand-yellow">Contact</h4>
                         <ul className="space-y-2 text-gray-400">
                             <li>
-                                <a href="tel:+917558009733" className="hover:text-brand-yellow">Phone: +91 7558009733</a>
+                                <a href="tel:+917907575484" className="hover:text-brand-yellow">Phone: +91 791 7575 484</a>
+                                <a href="tel:+917012953286" className="hover:text-brand-yellow">Phone: +91 701 295 3286</a>
                             </li>
                             <li>Email: raqlin@gmail.com</li>
                             <li>Address: Wayanad, Kerala, India</li>

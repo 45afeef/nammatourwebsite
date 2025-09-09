@@ -20,7 +20,7 @@ export default function FAQPage() {
           </li>
           <li>
             <strong>How do I reach customer support?</strong><br />
-            You can call us at <a href="tel:+917558009733" className="text-brand-yellow underline">+91 7558009733</a> or email <a href="mailto:mallulprogramming@gmail.com" className="text-brand-yellow underline">mallulprogramming@gmail.com</a>.
+            You can call us at <a href="tel:+917012953286" className="text-brand-yellow underline">+91 701 295 3286</a> or email <a href="mailto:raqlin@gmail.com" className="text-brand-yellow underline">raqlin@gmail.com</a>.
           </li>
         </ul>
       </section>

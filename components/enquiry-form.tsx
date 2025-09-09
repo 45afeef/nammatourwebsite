@@ -12,17 +12,21 @@ export default function EnquiryForm() {
                         <h2 className="text-4xl font-bold text-center lg:text-left mb-8">Contact Us</h2>
                         <div className="space-y-6">
                             <div className="space-y-4">
-                                <a href="tel:+917558009733" className="flex items-center text-lg text-primary hover:underline">
+                                <a href="tel:+917907575484" className="flex items-center text-lg text-primary hover:underline">
                                     <FaPhone className="mr-3" size={24} />
-                                    +91 755 800 9733
+                                    +91 790 7575 484
+                                </a>
+                                <a href="tel:+917012953286" className="flex items-center text-lg text-primary hover:underline">
+                                    <FaPhone className="mr-3" size={24} />
+                                    +91 701 295 3286
                                 </a>
                                 <a href="https://wa.me/917012953286" target="_blank" rel="noopener noreferrer" className="flex items-center text-lg text-primary hover:underline">
                                     <FaWhatsapp className="mr-3" size={24} />
                                     Chat on WhatsApp
                                 </a>
-                                <a href="mailto:malluprogramming@gmail.com" className="flex items-center text-lg text-primary hover:underline">
+                                <a href="mailto:raqlin@gmail.com" className="flex items-center text-lg text-primary hover:underline">
                                     <FaEnvelope className="mr-3" size={24} />
-                                    malluprogramming@gmail.com
+                                    raqlin@gmail.com
                                 </a>
 
                             </div>
