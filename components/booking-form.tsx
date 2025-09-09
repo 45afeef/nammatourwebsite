@@ -187,8 +187,8 @@ const BookingForm = () => {
             window.open(url, '_blank');
             setSubmitting(false);
         } else if (submitType === 'razorpay') {
-            // Example: 2500 per adult, 0 for kids (customize as needed)
-            const amount = form.adults * 2500;
+            // Example: 1999 per adult, 0 for kids (customize as needed)
+            const amount = form.adults * 1999
             try {
                 const res = await fetch('/api/razorpay/order', {
                     method: 'POST',
@@ -354,9 +354,8 @@ const BookingForm = () => {
                     </div>
                 </div>
                 <text>
-
                     pay advance of &nbsp;
-                    <span className="text-2xl font-bold text-green-700 mb-2">₹{(form.adults * 2000).toLocaleString()}<span className="text-base text-gray-400 line-through ml-2">₹{(form.adults * 3500).toLocaleString()}</span></span>
+                    <span className="text-2xl font-bold text-green-700 mb-2">₹{(form.adults * 1999).toLocaleString()}<span className="text-base text-gray-400 line-through ml-2">₹{(form.adults * 3500).toLocaleString()}</span></span>
                     &nbsp; per adult
                 </text>
                 <div className="flex gap-4">
